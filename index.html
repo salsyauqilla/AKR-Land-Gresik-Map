@@ -801,8 +801,100 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_GEMWalkBetoyoKauman_5_0() {
-            return {
+        function style_GEMWalkBetoyoKauman_5_0(feature) {
+            switch(String(feature.properties['Status'])) {
+                case 'Available':
+                    return {
+                pane: 'pane_GEMWalkBetoyoKauman_5',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,255,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'AVAILABLE':
+                    return {
+                pane: 'pane_GEMWalkBetoyoKauman_5',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,255,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Sold':
+                    return {
+                pane: 'pane_GEMWalkBetoyoKauman_5',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,227,3,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'SOLD':
+                    return {
+                pane: 'pane_GEMWalkBetoyoKauman_5',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,227,3,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'FUTURE DEVELOP':
+                    return {
+                pane: 'pane_GEMWalkBetoyoKauman_5',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,255,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'HOLD':
+                    return {
+                pane: 'pane_GEMWalkBetoyoKauman_5',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(34,131,192,1.0)',
+                interactive: true,
+            }
+                    break;
+                default:
+                    return {
                 pane: 'pane_GEMWalkBetoyoKauman_5',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -814,6 +906,23 @@
                 fillOpacity: 1,
                 fillColor: 'rgba(255,245,240,1.0)',
                 interactive: true,
+            }
+                    break;
+                case 'Anomaly':
+                    return {
+                pane: 'pane_GEMWalkBetoyoKauman_5',
+                opacity: 1,
+                color: 'rgba(82,82,82,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(247,247,247,1.0)',
+                interactive: true,
+            }
+                    break;
             }
         }
         map.createPane('pane_GEMWalkBetoyoKauman_5');
@@ -890,8 +999,100 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_GEMWalkBetoyoGuci_6_0() {
-            return {
+        function style_GEMWalkBetoyoGuci_6_0(feature) {
+            switch(String(feature.properties['Status'])) {
+                case 'Available':
+                    return {
+                pane: 'pane_GEMWalkBetoyoGuci_6',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,255,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'AVAILABLE':
+                    return {
+                pane: 'pane_GEMWalkBetoyoGuci_6',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,255,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Sold':
+                    return {
+                pane: 'pane_GEMWalkBetoyoGuci_6',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,227,3,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'SOLD':
+                    return {
+                pane: 'pane_GEMWalkBetoyoGuci_6',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,227,3,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'FUTURE DEVELOP':
+                    return {
+                pane: 'pane_GEMWalkBetoyoGuci_6',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,255,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'HOLD':
+                    return {
+                pane: 'pane_GEMWalkBetoyoGuci_6',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(34,131,192,1.0)',
+                interactive: true,
+            }
+                    break;
+                default:
+                    return {
                 pane: 'pane_GEMWalkBetoyoGuci_6',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -903,6 +1104,23 @@
                 fillOpacity: 1,
                 fillColor: 'rgba(255,158,23,1.0)',
                 interactive: true,
+            }
+                    break;
+                case 'Anomaly':
+                    return {
+                pane: 'pane_GEMWalkBetoyoGuci_6',
+                opacity: 1,
+                color: 'rgba(82,82,82,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(247,247,247,1.0)',
+                interactive: true,
+            }
+                    break;
             }
         }
         map.createPane('pane_GEMWalkBetoyoGuci_6');
@@ -975,8 +1193,100 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_EastGateManyarsidorukun_7_0() {
-            return {
+        function style_EastGateManyarsidorukun_7_0(feature) {
+            switch(String(feature.properties['Status'])) {
+                case 'Available':
+                    return {
+                pane: 'pane_EastGateManyarsidorukun_7',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,255,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'AVAILABLE':
+                    return {
+                pane: 'pane_EastGateManyarsidorukun_7',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,255,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Sold':
+                    return {
+                pane: 'pane_EastGateManyarsidorukun_7',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,227,3,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'SOLD':
+                    return {
+                pane: 'pane_EastGateManyarsidorukun_7',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,227,3,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'FUTURE DEVELOP':
+                    return {
+                pane: 'pane_EastGateManyarsidorukun_7',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,255,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'HOLD':
+                    return {
+                pane: 'pane_EastGateManyarsidorukun_7',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(34,131,192,1.0)',
+                interactive: true,
+            }
+                    break;
+                default:
+                    return {
                 pane: 'pane_EastGateManyarsidorukun_7',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -988,6 +1298,8 @@
                 fillOpacity: 1,
                 fillColor: 'rgba(252,233,149,1.0)',
                 interactive: true,
+            }
+                    break;
             }
         }
         map.createPane('pane_EastGateManyarsidorukun_7');
@@ -1060,8 +1372,100 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_WestGateBanyuwangi_8_0() {
-            return {
+        function style_WestGateBanyuwangi_8_0(feature) {
+            switch(String(feature.properties['Status'])) {
+                case 'Available':
+                    return {
+                pane: 'pane_WestGateBanyuwangi_8',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,255,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'AVAILABLE':
+                    return {
+                pane: 'pane_WestGateBanyuwangi_8',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,255,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Sold':
+                    return {
+                pane: 'pane_WestGateBanyuwangi_8',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,227,3,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'SOLD':
+                    return {
+                pane: 'pane_WestGateBanyuwangi_8',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,227,3,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'FUTURE DEVELOP':
+                    return {
+                pane: 'pane_WestGateBanyuwangi_8',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,255,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'HOLD':
+                    return {
+                pane: 'pane_WestGateBanyuwangi_8',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(34,131,192,1.0)',
+                interactive: true,
+            }
+                    break;
+                default:
+                    return {
                 pane: 'pane_WestGateBanyuwangi_8',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -1073,6 +1477,8 @@
                 fillOpacity: 1,
                 fillColor: 'rgba(230,196,163,1.0)',
                 interactive: true,
+            }
+                    break;
             }
         }
         map.createPane('pane_WestGateBanyuwangi_8');
