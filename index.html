@@ -39,7 +39,7 @@
             cursor: pointer;
         }
 
-        /* Highlight feature CSS */
+        /* Highlight feature CSS for search */
         .highlight {
           stroke-width: 3;
           stroke-linecap: round;
@@ -49,6 +49,14 @@
         /* Add spacing between the search bars */
         .leaflet-control-search {
             margin-top: 5px;
+        }
+        
+        /* Highlight feature CSS for click */
+        .click-highlight {
+            stroke-width: 3;
+            stroke: red;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
         </style>
         <title></title>
@@ -1518,66 +1526,31 @@
         });
         lay.addTo(map);
         setBounds();
-        var i = 0;
-        layer_Karangrejo_1.eachLayer(function(layer) {
-            var context = {
-                feature: layer.feature,
-                layer: layer
-            };
+        
+        var highlight_feature_click = null; // New global variable to store the clicked feature
+        var highlight_feature_search = null; // Retained for search functionality
+
+        function applyClickHighlight(layer) {
+            // Restore the previous click-highlighted feature's style
+            if (highlight_feature_click) {
+                highlight_feature_click.setStyle(highlight_feature_click.options.originalStyle);
+            }
+
+            // Save the original style of the new feature before highlighting it
+            layer.options.originalStyle = Object.assign({}, layer.options);
             
-        });
-        layer_Kramat_2.eachLayer(function(layer) {
-            var context = {
-                feature: layer.feature,
-                layer: layer
-            };
+            // Apply the new red highlight
+            layer.setStyle({
+                stroke: 'red',
+                color: 'red',
+                weight: 3,
+            });
             
-        });
-        layer_Bedanten_3.eachLayer(function(layer) {
-            var context = {
-                feature: layer.feature,
-                layer: layer
-            };
-            
-        });
-        layer_Manyarejo_4.eachLayer(function(layer) {
-            var context = {
-                feature: layer.feature,
-                layer: layer
-            };
-            
-        });
-        layer_GEMWalkBetoyoKauman_5.eachLayer(function(layer) {
-            var context = {
-                feature: layer.feature,
-                layer: layer
-            };
-            
-        });
-        layer_GEMWalkBetoyoGuci_6.eachLayer(function(layer) {
-            var context = {
-                feature: layer.feature,
-                layer: layer
-            };
-            
-        });
-        layer_EastGateManyarsidorukun_7.eachLayer(function(layer) {
-            var context = {
-                feature: layer.feature,
-                layer: layer
-            };
-            
-        });
-        layer_WestGateBanyuwangi_8.eachLayer(function(layer) {
-            var context = {
-                feature: layer.feature,
-                layer: layer
-            };
-            
-        });
+            // Set the new feature as the highlighted one
+            highlight_feature_click = layer;
+        }
 
         // Search bar functionality
-        var highlight_feature;
         var searchLayer = L.layerGroup([
             layer_Karangrejo_1,
             layer_Kramat_2,
@@ -1622,15 +1595,21 @@
             if (e.layer._popup) {
                 e.layer.openPopup();
             }
-            if (highlight_feature) {
+            if (highlight_feature_search) {
                 // Restore the original style of the previous highlighted feature
-                highlight_feature.setStyle(highlight_feature.options.originalStyle);
+                highlight_feature_search.setStyle(highlight_feature_search.options.originalStyle);
             }
             
+            // Clear any click highlight
+            if (highlight_feature_click) {
+                highlight_feature_click.setStyle(highlight_feature_click.options.originalStyle);
+                highlight_feature_click = null;
+            }
+
             // Save a copy of the original style of the new feature before highlighting it
             e.layer.options.originalStyle = Object.assign({}, e.layer.options);
 
-            highlight_feature = e.layer;
+            highlight_feature_search = e.layer;
             e.layer.setStyle({
                 color: '#ffff00',
                 fillColor: '#ffff00',
@@ -1641,10 +1620,10 @@
 
         // Event listener for search collapsed
         function onSearchCollapsed(e) {
-            if (highlight_feature) {
+            if (highlight_feature_search) {
                 // Restore the original style when the search is collapsed
-                highlight_feature.setStyle(highlight_feature.options.originalStyle);
-                highlight_feature = null;
+                highlight_feature_search.setStyle(highlight_feature_search.options.originalStyle);
+                highlight_feature_search = null;
             }
         }
 
@@ -1665,6 +1644,26 @@
             return div;
         };
         homeButton.addTo(map);
+
+        // New feature: Highlight on click
+        function setupClickHighlight(layer) {
+            layer.on('click', function(e) {
+                if (highlight_feature_search) {
+                    highlight_feature_search.setStyle(highlight_feature_search.options.originalStyle);
+                    highlight_feature_search = null;
+                }
+                applyClickHighlight(e.target);
+            });
+        }
+        
+        layer_Karangrejo_1.eachLayer(setupClickHighlight);
+        layer_Kramat_2.eachLayer(setupClickHighlight);
+        layer_Bedanten_3.eachLayer(setupClickHighlight);
+        layer_Manyarejo_4.eachLayer(setupClickHighlight);
+        layer_GEMWalkBetoyoKauman_5.eachLayer(setupClickHighlight);
+        layer_GEMWalkBetoyoGuci_6.eachLayer(setupClickHighlight);
+        layer_EastGateManyarsidorukun_7.eachLayer(setupClickHighlight);
+        layer_WestGateBanyuwangi_8.eachLayer(setupClickHighlight);
 
         </script>
     </body>
