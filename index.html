@@ -1509,7 +1509,7 @@
         ];
         var lay = L.control.layers.tree(baseMaps, overlaysTree,{
             // TODO collapsed: true,
-            collapsed: false,
+            collapsed: true,
         });
         lay.addTo(map);
         setBounds();
@@ -1573,7 +1573,6 @@
 
         // Search bar functionality
         var highlight_feature;
-        var originalStyle = {};
         var searchLayer = L.layerGroup([
             layer_Karangrejo_1,
             layer_Kramat_2,
@@ -1587,7 +1586,7 @@
 
         var searchControl = new L.Control.Search({
             layer: searchLayer,
-            propertyName: 'NIB',
+            propertyName: ['NIB', 'Nama_unit'],
             initial: false,
             zoom: 22,
             hideMarkerOnCollapse: true,
@@ -1602,13 +1601,13 @@
             if (e.layer._popup) {
                 e.layer.openPopup();
             }
-            if (highlight_feature && highlight_feature !== e.layer) {
+            if (highlight_feature) {
                 // Restore the original style of the previous highlighted feature
-                highlight_feature.setStyle(originalStyle);
+                highlight_feature.setStyle(highlight_feature.options.originalStyle);
             }
             
             // Save a copy of the original style of the new feature before highlighting it
-            originalStyle = Object.assign({}, e.layer.options);
+            e.layer.options.originalStyle = Object.assign({}, e.layer.options);
 
             highlight_feature = e.layer;
             e.layer.setStyle({
@@ -1622,9 +1621,8 @@
         searchControl.on('search:collapsed', function(e) {
             if (highlight_feature) {
                 // Restore the original style when the search is collapsed
-                highlight_feature.setStyle(originalStyle);
+                highlight_feature.setStyle(highlight_feature.options.originalStyle);
                 highlight_feature = null;
-                originalStyle = {};
             }
         });
 
