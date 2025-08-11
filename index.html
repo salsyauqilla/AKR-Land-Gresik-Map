@@ -110,9 +110,6 @@
 				popup._contentNode.classList.remove('media');
 			}
 		}
-        var zoomControl = L.control.zoom({
-            position: 'topleft'
-        }).addTo(map);
         L.control.locate({locateOptions: {maxZoom: 19}}).addTo(map);
         var measureControl = new L.Control.Measure({
             position: 'topleft',
@@ -1188,7 +1185,7 @@
             zoom: 22,
             hideMarkerOnCollapse: true,
             collapsed: false,
-            position:'topright',
+            position:'topleft',
             moveToLocation: function(latlng, title, map) {
                 map.setView(latlng, 22);
             }
