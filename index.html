@@ -45,6 +45,13 @@
           stroke-linecap: round;
           stroke-linejoin: round;
         }
+
+        /* Style for the custom search bar container */
+        .leaflet-control.search-controls-container {
+            display: flex;
+            flex-direction: column;
+            gap: 5px; /* Add some space between the search bars */
+        }
         </style>
         <title></title>
     </head>
@@ -1584,7 +1591,6 @@
             layer_WestGateBanyuwangi_8,
         ]);
 
-        // Search bar for NIB
         var searchNIB = new L.Control.Search({
             layer: searchLayer,
             propertyName: 'NIB',
@@ -1592,14 +1598,12 @@
             zoom: 22,
             hideMarkerOnCollapse: true,
             collapsed: true,
-            position:'topleft',
             textPlaceholder: 'Search NIB...',
             moveToLocation: function(latlng, title, map) {
                 map.setView(latlng, 22);
             }
         });
 
-        // Search bar for Nama_unit
         var searchNamaUnit = new L.Control.Search({
             layer: searchLayer,
             propertyName: 'Nama_unit',
@@ -1607,12 +1611,21 @@
             zoom: 22,
             hideMarkerOnCollapse: true,
             collapsed: true,
-            position:'topright',
             textPlaceholder: 'Search Nama_unit...',
             moveToLocation: function(latlng, title, map) {
                 map.setView(latlng, 22);
             }
         });
+
+        // Custom control to stack the search bars
+        var searchControlsContainer = L.control({position: 'topleft'});
+        searchControlsContainer.onAdd = function (map) {
+            var div = L.DomUtil.create('div', 'leaflet-control search-controls-container');
+            div.appendChild(searchNIB.getContainer());
+            div.appendChild(searchNamaUnit.getContainer());
+            return div;
+        };
+        searchControlsContainer.addTo(map);
 
         // Event listener for search location found
         function onSearchLocationFound(e) {
@@ -1649,9 +1662,6 @@
         searchNIB.on('search:collapsed', onSearchCollapsed);
         searchNamaUnit.on('search:locationfound', onSearchLocationFound);
         searchNamaUnit.on('search:collapsed', onSearchCollapsed);
-
-        map.addControl(searchNIB);
-        map.addControl(searchNamaUnit);
 
         // Home button functionality
         var homeButton = L.control({position: 'topleft'});
