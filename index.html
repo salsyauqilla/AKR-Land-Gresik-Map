@@ -45,12 +45,10 @@
           stroke-linecap: round;
           stroke-linejoin: round;
         }
-
-        /* Style for the custom search bar container */
-        .leaflet-control.search-controls-container {
-            display: flex;
-            flex-direction: column;
-            gap: 5px; /* Add some space between the search bars */
+        
+        /* Add spacing between the search bars */
+        .leaflet-control-search {
+            margin-top: 5px;
         }
         </style>
         <title></title>
@@ -1603,6 +1601,7 @@
                 map.setView(latlng, 22);
             }
         });
+        searchNIB.addTo(map);
 
         var searchNamaUnit = new L.Control.Search({
             layer: searchLayer,
@@ -1616,17 +1615,8 @@
                 map.setView(latlng, 22);
             }
         });
-
-        // Custom control to stack the search bars
-        var searchControlsContainer = L.control({position: 'topleft'});
-        searchControlsContainer.onAdd = function (map) {
-            var div = L.DomUtil.create('div', 'leaflet-control search-controls-container');
-            div.appendChild(searchNIB.getContainer());
-            div.appendChild(searchNamaUnit.getContainer());
-            return div;
-        };
-        searchControlsContainer.addTo(map);
-
+        searchNamaUnit.addTo(map);
+        
         // Event listener for search location found
         function onSearchLocationFound(e) {
             if (e.layer._popup) {
