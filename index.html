@@ -1584,20 +1584,38 @@
             layer_WestGateBanyuwangi_8,
         ]);
 
-        var searchControl = new L.Control.Search({
+        // Search bar for NIB
+        var searchNIB = new L.Control.Search({
             layer: searchLayer,
-            propertyName: ['NIB', 'Nama_unit'],
+            propertyName: 'NIB',
             initial: false,
             zoom: 22,
             hideMarkerOnCollapse: true,
-            collapsed: false,
+            collapsed: true,
             position:'topleft',
+            textPlaceholder: 'Search NIB...',
             moveToLocation: function(latlng, title, map) {
                 map.setView(latlng, 22);
             }
         });
 
-        searchControl.on('search:locationfound', function(e) {
+        // Search bar for Nama_unit
+        var searchNamaUnit = new L.Control.Search({
+            layer: searchLayer,
+            propertyName: 'Nama_unit',
+            initial: false,
+            zoom: 22,
+            hideMarkerOnCollapse: true,
+            collapsed: true,
+            position:'topright',
+            textPlaceholder: 'Search Nama_unit...',
+            moveToLocation: function(latlng, title, map) {
+                map.setView(latlng, 22);
+            }
+        });
+
+        // Event listener for search location found
+        function onSearchLocationFound(e) {
             if (e.layer._popup) {
                 e.layer.openPopup();
             }
@@ -1616,17 +1634,24 @@
                 dashArray: '',
                 fillOpacity: 1
             });
-        });
+        }
 
-        searchControl.on('search:collapsed', function(e) {
+        // Event listener for search collapsed
+        function onSearchCollapsed(e) {
             if (highlight_feature) {
                 // Restore the original style when the search is collapsed
                 highlight_feature.setStyle(highlight_feature.options.originalStyle);
                 highlight_feature = null;
             }
-        });
+        }
 
-        map.addControl(searchControl);
+        searchNIB.on('search:locationfound', onSearchLocationFound);
+        searchNIB.on('search:collapsed', onSearchCollapsed);
+        searchNamaUnit.on('search:locationfound', onSearchLocationFound);
+        searchNamaUnit.on('search:collapsed', onSearchCollapsed);
+
+        map.addControl(searchNIB);
+        map.addControl(searchNamaUnit);
 
         // Home button functionality
         var homeButton = L.control({position: 'topleft'});
