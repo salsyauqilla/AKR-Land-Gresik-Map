@@ -1191,17 +1191,17 @@
             }
         });
 
+        var originalStyle = {};
         searchControl.on('search:locationfound', function(e) {
             if (e.layer._popup) {
                 e.layer.openPopup();
             }
             if (highlight_feature) {
-                highlight_feature.setStyle({
-                    color: '#353535',
-                    fillColor: highlight_feature.options.fillColor,
-                    fillOpacity: highlight_feature.options.fillOpacity
-                });
+                // Restore the original style of the previous highlighted feature
+                highlight_feature.setStyle(originalStyle);
             }
+            // Save the original style of the new feature before highlighting it
+            originalStyle = e.layer.options;
             highlight_feature = e.layer;
             e.layer.setStyle({
                 color: '#ffff00',
@@ -1213,12 +1213,10 @@
 
         searchControl.on('search:collapsed', function(e) {
             if (highlight_feature) {
-                highlight_feature.setStyle({
-                    color: '#353535',
-                    fillColor: highlight_feature.options.fillColor,
-                    fillOpacity: highlight_feature.options.fillOpacity
-                });
+                // Restore the original style when the search is collapsed
+                highlight_feature.setStyle(originalStyle);
                 highlight_feature = null;
+                originalStyle = {};
             }
         });
 
