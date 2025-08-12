@@ -476,22 +476,6 @@
                         <th scope="row">Tanah Sisa</th>\
                         <td class="visible-with-data" id="Tanah Sisa">' + (feature.properties['Tanah Sisa'] !== null ? autolinker.link(String(feature.properties['Tanah Sisa']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
-                    <tr>\
-                        <th scope="row">Pemilik</th>\
-                        <td class="visible-with-data" id="Pemilik">' + (feature.properties['Pemilik'] !== null ? autolinker.link(String(feature.properties['Pemilik']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Keterangan</th>\
-                        <td class="visible-with-data" id="Keterangan">' + (feature.properties['Keterangan'] !== null ? autolinker.link(String(feature.properties['Keterangan']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">error-percentage</th>\
-                        <td class="visible-with-data" id="error-percentage">' + (feature.properties['error-percentage'] !== null ? autolinker.link(String(feature.properties['error-percentage']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Selisih_auto</th>\
-                        <td class="visible-with-data" id="Selisih_auto">' + (feature.properties['Selisih_auto'] !== null ? autolinker.link(String(feature.properties['Selisih_auto']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
 			layer.on('popupopen', function(e) {
@@ -502,6 +486,96 @@
 
         function style_Bedanten_3_0(feature) {
             switch(String(feature.properties['Status'])) {
+                case 'Available':
+                    return {
+                pane: 'pane_Bedanten_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,255,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'AVAILABLE':
+                    return {
+                pane: 'pane_Bedanten_3',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,255,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Sold':
+                    return {
+                pane: 'pane_Bedanten_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,227,3,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'SOLD':
+                    return {
+                pane: 'pane_Bedanten_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,227,3,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'FUTURE DEVELOP':
+                    return {
+                pane: 'pane_Bedanten_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,255,255,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'HOLD':
+                    return {
+                pane: 'pane_Bedanten_3',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(34,131,192,1.0)',
+                interactive: true,
+            }
+                    break;
                 default:
                     return {
                 pane: 'pane_Bedanten_3',
@@ -513,22 +587,7 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(127,64,203,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Anomaly':
-                    return {
-                pane: 'pane_Bedanten_3',
-                opacity: 1,
-                color: 'rgba(82,82,82,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(247,247,247,1.0)',
+                fillColor: 'rgba(255,255,255,1.0)',
                 interactive: true,
             }
                     break;
@@ -591,22 +650,6 @@
                     <tr>\
                         <th scope="row">Tanah Sisa</th>\
                         <td class="visible-with-data" id="Tanah Sisa">' + (feature.properties['Tanah Sisa'] !== null ? autolinker.link(String(feature.properties['Tanah Sisa']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Keterangan</th>\
-                        <td class="visible-with-data" id="Keterangan">' + (feature.properties['Keterangan'] !== null ? autolinker.link(String(feature.properties['Keterangan']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Pemilik</th>\
-                        <td class="visible-with-data" id="Pemilik">' + (feature.properties['Pemilik'] !== null ? autolinker.link(String(feature.properties['Pemilik']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">error-percentage</th>\
-                        <td class="visible-with-data" id="error-percentage">' + (feature.properties['error-percentage'] !== null ? autolinker.link(String(feature.properties['error-percentage']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Selisih_auto</th>\
-                        <td class="visible-with-data" id="Selisih_auto">' + (feature.properties['Selisih_auto'] !== null ? autolinker.link(String(feature.properties['Selisih_auto']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -678,21 +721,6 @@
                 interactive: true,
             }
                     break;
-                default:
-                    return {
-                pane: 'pane_Manyarejo_4',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(100,93,94,1.0)',
-                interactive: true,
-            }
-                    break;
                 case 'FUTURE DEVELOP':
                     return {
                 pane: 'pane_Manyarejo_4',
@@ -723,18 +751,18 @@
                 interactive: true,
             }
                     break;
-                case 'Anomaly':
+                default:
                     return {
                 pane: 'pane_Manyarejo_4',
                 opacity: 1,
-                color: 'rgba(82,82,82,1.0)',
+                color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(247,247,247,1.0)',
+                fillColor: 'rgba(255,255,255,1.0)',
                 interactive: true,
             }
                     break;
@@ -757,54 +785,8 @@
         function pop_GEMWalkBetoyoKauman_5(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(String(feature.properties['id']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="Nama_unit" colspan="2"><strong>Nama_unit</strong><br />' + (feature.properties['Nama_unit'] !== null ? autolinker.link(String(feature.properties['Nama_unit']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">No_SHGB</th>\
-                        <td class="visible-with-data" id="No_SHGB">' + (feature.properties['No_SHGB'] !== null ? autolinker.link(String(feature.properties['No_SHGB']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Luas</th>\
-                        <td class="visible-with-data" id="Luas">' + (feature.properties['Luas'] !== null ? autolinker.link(String(feature.properties['Luas']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">NOP</th>\
-                        <td class="visible-with-data" id="NOP">' + (feature.properties['NOP'] !== null ? autolinker.link(String(feature.properties['NOP']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">IMB</th>\
-                        <td class="visible-with-data" id="IMB">' + (feature.properties['IMB'] !== null ? autolinker.link(String(feature.properties['IMB']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">NIB</th>\
-                        <td class="visible-with-data" id="NIB">' + (feature.properties['NIB'] !== null ? autolinker.link(String(feature.properties['NIB']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Status</th>\
-                        <td class="visible-with-data" id="Status">' + (feature.properties['Status'] !== null ? autolinker.link(String(feature.properties['Status']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">PBB</th>\
-                        <td class="visible-with-data" id="PBB">' + (feature.properties['PBB'] !== null ? autolinker.link(String(feature.properties['PBB']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">tglbrakhir</th>\
-                        <td class="visible-with-data" id="tglbrakhir">' + (feature.properties['tglbrakhir'] !== null ? autolinker.link(String(feature.properties['tglbrakhir']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Pemilik</th>\
-                        <td class="visible-with-data" id="Pemilik">' + (feature.properties['Pemilik'] !== null ? autolinker.link(String(feature.properties['Pemilik']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Keterangan</th>\
-                        <td class="visible-with-data" id="Keterangan">' + (feature.properties['Keterangan'] !== null ? autolinker.link(String(feature.properties['Keterangan']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">error-percentage</th>\
-                        <td class="visible-with-data" id="error-percentage">' + (feature.properties['error-percentage'] !== null ? autolinker.link(String(feature.properties['error-percentage']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <th scope="row">Nama_unit</th>\
+                        <td>' + (feature.properties['Nama_unit'] !== null ? autolinker.link(String(feature.properties['Nama_unit']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -814,10 +796,8 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_GEMWalkBetoyoKauman_5_0(feature) {
-            switch(String(feature.properties['Status'])) {
-                case 'Available':
-                    return {
+        function style_GEMWalkBetoyoKauman_5_0() {
+            return {
                 pane: 'pane_GEMWalkBetoyoKauman_5',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -827,115 +807,8 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(255,255,255,1.0)',
+                fillColor: 'rgba(215,25,28,1.0)',
                 interactive: true,
-            }
-                    break;
-                case 'AVAILABLE':
-                    return {
-                pane: 'pane_GEMWalkBetoyoKauman_5',
-                opacity: 1,
-                color: 'rgba(0,0,0,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(255,255,255,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Sold':
-                    return {
-                pane: 'pane_GEMWalkBetoyoKauman_5',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(0,227,3,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'SOLD':
-                    return {
-                pane: 'pane_GEMWalkBetoyoKauman_5',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(0,227,3,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'FUTURE DEVELOP':
-                    return {
-                pane: 'pane_GEMWalkBetoyoKauman_5',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(255,255,255,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'HOLD':
-                    return {
-                pane: 'pane_GEMWalkBetoyoKauman_5',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(34,131,192,1.0)',
-                interactive: true,
-            }
-                    break;
-                default:
-                    return {
-                pane: 'pane_GEMWalkBetoyoKauman_5',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(255,245,240,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Anomaly':
-                    return {
-                pane: 'pane_GEMWalkBetoyoKauman_5',
-                opacity: 1,
-                color: 'rgba(82,82,82,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(247,247,247,1.0)',
-                interactive: true,
-            }
-                    break;
             }
         }
         map.createPane('pane_GEMWalkBetoyoKauman_5');
@@ -955,54 +828,8 @@
         function pop_GEMWalkBetoyoGuci_6(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(String(feature.properties['id']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="Nama_unit" colspan="2"><strong>Nama_unit</strong><br />' + (feature.properties['Nama_unit'] !== null ? autolinker.link(String(feature.properties['Nama_unit']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">No_SHGB</th>\
-                        <td class="visible-with-data" id="No_SHGB">' + (feature.properties['No_SHGB'] !== null ? autolinker.link(String(feature.properties['No_SHGB']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Luas</th>\
-                        <td class="visible-with-data" id="Luas">' + (feature.properties['Luas'] !== null ? autolinker.link(String(feature.properties['Luas']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">NOP</th>\
-                        <td class="visible-with-data" id="NOP">' + (feature.properties['NOP'] !== null ? autolinker.link(String(feature.properties['NOP']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">IMB</th>\
-                        <td class="visible-with-data" id="IMB">' + (feature.properties['IMB'] !== null ? autolinker.link(String(feature.properties['IMB']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">NIB</th>\
-                        <td class="visible-with-data" id="NIB">' + (feature.properties['NIB'] !== null ? autolinker.link(String(feature.properties['NIB']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Status</th>\
-                        <td class="visible-with-data" id="Status">' + (feature.properties['Status'] !== null ? autolinker.link(String(feature.properties['Status']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">PBB</th>\
-                        <td class="visible-with-data" id="PBB">' + (feature.properties['PBB'] !== null ? autolinker.link(String(feature.properties['PBB']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">tglbrakhir</th>\
-                        <td class="visible-with-data" id="tglbrakhir">' + (feature.properties['tglbrakhir'] !== null ? autolinker.link(String(feature.properties['tglbrakhir']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Pemilik</th>\
-                        <td class="visible-with-data" id="Pemilik">' + (feature.properties['Pemilik'] !== null ? autolinker.link(String(feature.properties['Pemilik']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Keterangan</th>\
-                        <td class="visible-with-data" id="Keterangan">' + (feature.properties['Keterangan'] !== null ? autolinker.link(String(feature.properties['Keterangan']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">error-percentage</th>\
-                        <td class="visible-with-data" id="error-percentage">' + (feature.properties['error-percentage'] !== null ? autolinker.link(String(feature.properties['error-percentage']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <th scope="row">Nama_unit</th>\
+                        <td>' + (feature.properties['Nama_unit'] !== null ? autolinker.link(String(feature.properties['Nama_unit']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -1012,10 +839,8 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_GEMWalkBetoyoGuci_6_0(feature) {
-            switch(String(feature.properties['Status'])) {
-                case 'Available':
-                    return {
+        function style_GEMWalkBetoyoGuci_6_0() {
+            return {
                 pane: 'pane_GEMWalkBetoyoGuci_6',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -1025,115 +850,8 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(255,255,255,1.0)',
+                fillColor: 'rgba(215,25,28,1.0)',
                 interactive: true,
-            }
-                    break;
-                case 'AVAILABLE':
-                    return {
-                pane: 'pane_GEMWalkBetoyoGuci_6',
-                opacity: 1,
-                color: 'rgba(0,0,0,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(255,255,255,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Sold':
-                    return {
-                pane: 'pane_GEMWalkBetoyoGuci_6',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(0,227,3,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'SOLD':
-                    return {
-                pane: 'pane_GEMWalkBetoyoGuci_6',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(0,227,3,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'FUTURE DEVELOP':
-                    return {
-                pane: 'pane_GEMWalkBetoyoGuci_6',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(255,255,255,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'HOLD':
-                    return {
-                pane: 'pane_GEMWalkBetoyoGuci_6',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(34,131,192,1.0)',
-                interactive: true,
-            }
-                    break;
-                default:
-                    return {
-                pane: 'pane_GEMWalkBetoyoGuci_6',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(255,158,23,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Anomaly':
-                    return {
-                pane: 'pane_GEMWalkBetoyoGuci_6',
-                opacity: 1,
-                color: 'rgba(82,82,82,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(247,247,247,1.0)',
-                interactive: true,
-            }
-                    break;
             }
         }
         map.createPane('pane_GEMWalkBetoyoGuci_6');
@@ -1153,50 +871,8 @@
         function pop_EastGateManyarsidorukun_7(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(String(feature.properties['id']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="Nama_unit" colspan="2"><strong>Nama_unit</strong><br />' + (feature.properties['Nama_unit'] !== null ? autolinker.link(String(feature.properties['Nama_unit']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">No_SHGB</th>\
-                        <td class="visible-with-data" id="No_SHGB">' + (feature.properties['No_SHGB'] !== null ? autolinker.link(String(feature.properties['No_SHGB']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Luas</th>\
-                        <td class="visible-with-data" id="Luas">' + (feature.properties['Luas'] !== null ? autolinker.link(String(feature.properties['Luas']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">NOP</th>\
-                        <td class="visible-with-data" id="NOP">' + (feature.properties['NOP'] !== null ? autolinker.link(String(feature.properties['NOP']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">IMB</th>\
-                        <td class="visible-with-data" id="IMB">' + (feature.properties['IMB'] !== null ? autolinker.link(String(feature.properties['IMB']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">NIB</th>\
-                        <td class="visible-with-data" id="NIB">' + (feature.properties['NIB'] !== null ? autolinker.link(String(feature.properties['NIB']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Status</th>\
-                        <td class="visible-with-data" id="Status">' + (feature.properties['Status'] !== null ? autolinker.link(String(feature.properties['Status']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">PBB</th>\
-                        <td class="visible-with-data" id="PBB">' + (feature.properties['PBB'] !== null ? autolinker.link(String(feature.properties['PBB']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">tglbrakhir</th>\
-                        <td class="visible-with-data" id="tglbrakhir">' + (feature.properties['tglbrakhir'] !== null ? autolinker.link(String(feature.properties['tglbrakhir']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Pemilik</th>\
-                        <td class="visible-with-data" id="Pemilik">' + (feature.properties['Pemilik'] !== null ? autolinker.link(String(feature.properties['Pemilik']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Keterangan</th>\
-                        <td class="visible-with-data" id="Keterangan">' + (feature.properties['Keterangan'] !== null ? autolinker.link(String(feature.properties['Keterangan']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <th scope="row">Nama_unit</th>\
+                        <td>' + (feature.properties['Nama_unit'] !== null ? autolinker.link(String(feature.properties['Nama_unit']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -1206,10 +882,8 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_EastGateManyarsidorukun_7_0(feature) {
-            switch(String(feature.properties['Status'])) {
-                case 'Available':
-                    return {
+        function style_EastGateManyarsidorukun_7_0() {
+            return {
                 pane: 'pane_EastGateManyarsidorukun_7',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -1219,100 +893,8 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(255,255,255,1.0)',
+                fillColor: 'rgba(215,25,28,1.0)',
                 interactive: true,
-            }
-                    break;
-                case 'AVAILABLE':
-                    return {
-                pane: 'pane_EastGateManyarsidorukun_7',
-                opacity: 1,
-                color: 'rgba(0,0,0,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(255,255,255,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Sold':
-                    return {
-                pane: 'pane_EastGateManyarsidorukun_7',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(0,227,3,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'SOLD':
-                    return {
-                pane: 'pane_EastGateManyarsidorukun_7',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(0,227,3,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'FUTURE DEVELOP':
-                    return {
-                pane: 'pane_EastGateManyarsidorukun_7',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(255,255,255,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'HOLD':
-                    return {
-                pane: 'pane_EastGateManyarsidorukun_7',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(34,131,192,1.0)',
-                interactive: true,
-            }
-                    break;
-                default:
-                    return {
-                pane: 'pane_EastGateManyarsidorukun_7',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(252,233,149,1.0)',
-                interactive: true,
-            }
-                    break;
             }
         }
         map.createPane('pane_EastGateManyarsidorukun_7');
@@ -1332,50 +914,8 @@
         function pop_WestGateBanyuwangi_8(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(String(feature.properties['id']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td class="visible-with-data" id="Nama_unit" colspan="2"><strong>Nama_unit</strong><br />' + (feature.properties['Nama_unit'] !== null ? autolinker.link(String(feature.properties['Nama_unit']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">No_SHGB</th>\
-                        <td class="visible-with-data" id="No_SHGB">' + (feature.properties['No_SHGB'] !== null ? autolinker.link(String(feature.properties['No_SHGB']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Luas</th>\
-                        <td class="visible-with-data" id="Luas">' + (feature.properties['Luas'] !== null ? autolinker.link(String(feature.properties['Luas']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">NOP</th>\
-                        <td class="visible-with-data" id="NOP">' + (feature.properties['NOP'] !== null ? autolinker.link(String(feature.properties['NOP']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">IMB</th>\
-                        <td class="visible-with-data" id="IMB">' + (feature.properties['IMB'] !== null ? autolinker.link(String(feature.properties['IMB']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">NIB</th>\
-                        <td class="visible-with-data" id="NIB">' + (feature.properties['NIB'] !== null ? autolinker.link(String(feature.properties['NIB']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Status</th>\
-                        <td class="visible-with-data" id="Status">' + (feature.properties['Status'] !== null ? autolinker.link(String(feature.properties['Status']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">PBB</th>\
-                        <td class="visible-with-data" id="PBB">' + (feature.properties['PBB'] !== null ? autolinker.link(String(feature.properties['PBB']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">tglbrakhir</th>\
-                        <td class="visible-with-data" id="tglbrakhir">' + (feature.properties['tglbrakhir'] !== null ? autolinker.link(String(feature.properties['tglbrakhir']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Pemilik</th>\
-                        <td class="visible-with-data" id="Pemilik">' + (feature.properties['Pemilik'] !== null ? autolinker.link(String(feature.properties['Pemilik']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Keterangan</th>\
-                        <td class="visible-with-data" id="Keterangan">' + (feature.properties['Keterangan'] !== null ? autolinker.link(String(feature.properties['Keterangan']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <th scope="row">Nama_unit</th>\
+                        <td>' + (feature.properties['Nama_unit'] !== null ? autolinker.link(String(feature.properties['Nama_unit']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -1385,10 +925,8 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_WestGateBanyuwangi_8_0(feature) {
-            switch(String(feature.properties['Status'])) {
-                case 'Available':
-                    return {
+        function style_WestGateBanyuwangi_8_0() {
+            return {
                 pane: 'pane_WestGateBanyuwangi_8',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -1398,100 +936,8 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(255,255,255,1.0)',
+                fillColor: 'rgba(215,25,28,1.0)',
                 interactive: true,
-            }
-                    break;
-                case 'AVAILABLE':
-                    return {
-                pane: 'pane_WestGateBanyuwangi_8',
-                opacity: 1,
-                color: 'rgba(0,0,0,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(255,255,255,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Sold':
-                    return {
-                pane: 'pane_WestGateBanyuwangi_8',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(0,227,3,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'SOLD':
-                    return {
-                pane: 'pane_WestGateBanyuwangi_8',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(0,227,3,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'FUTURE DEVELOP':
-                    return {
-                pane: 'pane_WestGateBanyuwangi_8',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(255,255,255,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'HOLD':
-                    return {
-                pane: 'pane_WestGateBanyuwangi_8',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(34,131,192,1.0)',
-                interactive: true,
-            }
-                    break;
-                default:
-                    return {
-                pane: 'pane_WestGateBanyuwangi_8',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(230,196,163,1.0)',
-                interactive: true,
-            }
-                    break;
             }
         }
         map.createPane('pane_WestGateBanyuwangi_8');
@@ -1510,139 +956,269 @@
         map.addLayer(layer_WestGateBanyuwangi_8);
         var baseMaps = {};
         var overlaysTree = [
-            {label: '<input type="checkbox" checked="checked" id="layer_WestGateBanyuwangi_8_checkbox" />West Gate Banyuwangi', layer: layer_WestGateBanyuwangi_8},
-            {label: '<input type="checkbox" checked="checked" id="layer_EastGateManyarsidorukun_7_checkbox" />East Gate Manyarsidorukun', layer: layer_EastGateManyarsidorukun_7},
-            {label: '<input type="checkbox" checked="checked" id="layer_GEMWalkBetoyoGuci_6_checkbox" />GEM Walk Betoyo Guci', layer: layer_GEMWalkBetoyoGuci_6},
-            {label: '<input type="checkbox" checked="checked" id="layer_GEMWalkBetoyoKauman_5_checkbox" />GEM Walk Betoyo Kauman', layer: layer_GEMWalkBetoyoKauman_5},
-            {label: '<input type="checkbox" checked="checked" id="layer_Manyarejo_4_checkbox" />Manyarejo', layer: layer_Manyarejo_4},
-            {label: '<input type="checkbox" checked="checked" id="layer_Bedanten_3_checkbox" />Bedanten', layer: layer_Bedanten_3},
-            {label: '<input type="checkbox" checked="checked" id="layer_Kramat_2_checkbox" />Kramat', layer: layer_Kramat_2},
-            {label: '<input type="checkbox" checked="checked" id="layer_Karangrejo_1_checkbox" />Karangrejo', layer: layer_Karangrejo_1},
-            {label: "Google Satellite", layer: layer_GoogleSatellite_0},
+            {label: '<input type="checkbox" checked="checked" id="legend_GoogleSatellite_0" /> Google Satellite', layer: layer_GoogleSatellite_0},
+            {label: '<input type="checkbox" checked="checked" id="legend_Karangrejo_1" /> Karangrejo', layer: layer_Karangrejo_1},
+            {label: '<input type="checkbox" checked="checked" id="legend_Kramat_2" /> Kramat', layer: layer_Kramat_2},
+            {label: '<input type="checkbox" checked="checked" id="legend_Bedanten_3" /> Bedanten', layer: layer_Bedanten_3},
+            {label: '<input type="checkbox" checked="checked" id="legend_Manyarejo_4" /> Manyarejo', layer: layer_Manyarejo_4},
+            {label: '<input type="checkbox" checked="checked" id="legend_GEMWalkBetoyoKauman_5" /> GEMWalk-BetoyoKauman', layer: layer_GEMWalkBetoyoKauman_5},
+            {label: '<input type="checkbox" checked="checked" id="legend_GEMWalkBetoyoGuci_6" /> GEMWalk-BetoyoGuci', layer: layer_GEMWalkBetoyoGuci_6},
+            {label: '<input type="checkbox" checked="checked" id="legend_EastGateManyarsidorukun_7" /> EastGate-Manyarsidorukun', layer: layer_EastGateManyarsidorukun_7},
+            {label: '<input type="checkbox" checked="checked" id="legend_WestGateBanyuwangi_8" /> WestGate-Banyuwangi', layer: layer_WestGateBanyuwangi_8},
         ];
-        var lay = L.control.layers.tree(baseMaps, overlaysTree,{
-            // TODO collapsed: true,
+        var Layertree = L.control.layers.tree(baseMaps, overlaysTree, {
+            // "title": "Layers",
+            // "collapseAll": "Collapse all",
+            // "expandAll": "Expand all",
             collapsed: true,
         });
-        lay.addTo(map);
-        setBounds();
+        Layertree.addTo(map);
+        var i = 0;
+        layer_Karangrejo_1.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                layer: layer
+            };
+            layer.bindTooltip((layer.feature.properties['Nama_unit'] !== null ? String(layer.feature.properties['Nama_unit']) : ''), {permanent: true, offset: [-0, -16], className: 'css_Karangrejo_1'});
+            labels.push(layer);
+            jsonSource_Karangrejo_1.addLayer(layer);
+        });
+        layer_Kramat_2.eachLayer(function(layer) {
+            labels.push(layer);
+            jsonSource_Kramat_2.addLayer(layer);
+        });
+        layer_Bedanten_3.eachLayer(function(layer) {
+            labels.push(layer);
+            jsonSource_Bedanten_3.addLayer(layer);
+        });
+        layer_Manyarejo_4.eachLayer(function(layer) {
+            labels.push(layer);
+            jsonSource_Manyarejo_4.addLayer(layer);
+        });
+        layer_GEMWalkBetoyoKauman_5.eachLayer(function(layer) {
+            labels.push(layer);
+            jsonSource_GEMWalkBetoyoKauman_5.addLayer(layer);
+        });
+        layer_GEMWalkBetoyoGuci_6.eachLayer(function(layer) {
+            labels.push(layer);
+            jsonSource_GEMWalkBetoyoGuci_6.addLayer(layer);
+        });
+        layer_EastGateManyarsidorukun_7.eachLayer(function(layer) {
+            labels.push(layer);
+            jsonSource_EastGateManyarsidorukun_7.addLayer(layer);
+        });
+        layer_WestGateBanyuwangi_8.eachLayer(function(layer) {
+            labels.push(layer);
+            jsonSource_WestGateBanyuwangi_8.addLayer(layer);
+        });
+        var highlight_feature_search;
+        var search_content = {};
         
-        var highlight_feature_click = null; // New global variable to store the clicked feature
-        var highlight_feature_search = null; // Retained for search functionality
-
-        function applyClickHighlight(layer) {
-            // Restore the previous click-highlighted feature's style
-            if (highlight_feature_click) {
-                highlight_feature_click.setStyle(highlight_feature_click.options.originalStyle);
-            }
-
-            // Save the original style of the new feature before highlighting it
-            layer.options.originalStyle = Object.assign({}, layer.options);
-            
-            // Apply the new red highlight
-            layer.setStyle({
-                stroke: 'red',
-                color: 'red',
-                weight: 3,
-            });
-            
-            // Set the new feature as the highlighted one
-            highlight_feature_click = layer;
-        }
-
-        // Search bar functionality
-        var searchLayer = L.layerGroup([
-            layer_Karangrejo_1,
-            layer_Kramat_2,
-            layer_Bedanten_3,
-            layer_Manyarejo_4,
-            layer_GEMWalkBetoyoKauman_5,
-            layer_GEMWalkBetoyoGuci_6,
-            layer_EastGateManyarsidorukun_7,
-            layer_WestGateBanyuwangi_8,
-        ]);
-
-        var searchNIB = new L.Control.Search({
-            layer: searchLayer,
-            propertyName: 'NIB',
-            initial: false,
-            zoom: 22,
-            hideMarkerOnCollapse: true,
-            collapsed: true,
-            textPlaceholder: 'Search NIB...',
-            moveToLocation: function(latlng, title, map) {
-                map.setView(latlng, 22);
-            }
-        });
-        searchNIB.addTo(map);
-
-        var searchNamaUnit = new L.Control.Search({
-            layer: searchLayer,
-            propertyName: 'Nama_unit',
-            initial: false,
-            zoom: 22,
-            hideMarkerOnCollapse: true,
-            collapsed: true,
-            textPlaceholder: 'Search Nama_unit...',
-            moveToLocation: function(latlng, title, map) {
-                map.setView(latlng, 22);
-            }
-        });
-        searchNamaUnit.addTo(map);
+        // --- NEW CODE START ---
         
-        // Event listener for search location found
-        function onSearchLocationFound(e) {
-            if (e.layer._popup) {
-                e.layer.openPopup();
-            }
-            if (highlight_feature_search) {
-                // Restore the original style of the previous highlighted feature
-                highlight_feature_search.setStyle(highlight_feature_search.options.originalStyle);
-            }
-            
-            // Clear any click highlight
-            if (highlight_feature_click) {
-                highlight_feature_click.setStyle(highlight_feature_click.options.originalStyle);
-                highlight_feature_click = null;
-            }
-
-            // Save a copy of the original style of the new feature before highlighting it
-            e.layer.options.originalStyle = Object.assign({}, e.layer.options);
-
-            highlight_feature_search = e.layer;
-            e.layer.setStyle({
-                color: '#ffff00',
-                fillColor: '#ffff00',
-                dashArray: '',
-                fillOpacity: 1
-            });
-        }
-
-        // Event listener for search collapsed
-        function onSearchCollapsed(e) {
-            if (highlight_feature_search) {
-                // Restore the original style when the search is collapsed
-                highlight_feature_search.setStyle(highlight_feature_search.options.originalStyle);
-                highlight_feature_search = null;
-            }
-        }
-
-        searchNIB.on('search:locationfound', onSearchLocationFound);
-        searchNIB.on('search:collapsed', onSearchCollapsed);
-        searchNamaUnit.on('search:locationfound', onSearchLocationFound);
-        searchNamaUnit.on('search:collapsed', onSearchCollapsed);
-
-        // Home button functionality
-        var homeButton = L.control({position: 'topleft'});
-        homeButton.onAdd = function(map) {
-            var div = L.DomUtil.create('div', 'leaflet-control leaflet-control-home');
-            div.innerHTML = '<button type="button" class="home-button" aria-label="Zoom to initial extent" style="width: 30px; height: 30px; border: none; background-color: white;"></button>';
-            div.title = 'Zoom to initial extent';
-            L.DomEvent.on(div, 'click', function() {
-                map.fitBounds([[-7.110195190137186,112.54631640132943],[-7.019549845255293,112.66806813870836]]);
-            });
-            return div;
+        // Define a style for the feature that will be highlighted from the URL
+        const highlightStyleFromUrl = {
+            weight: 5,
+            color: '#00ffff', // Cyan color for visibility
+            dashArray: '',
+            fillOpacity: 0.7
         };
+        
+        let highlight_feature_from_url = null;
+
+        // Function to clear any existing highlight from the URL
+        function clearHighlightFromUrl() {
+            if (highlight_feature_from_url) {
+                highlight_feature_from_url.setStyle(highlight_feature_from_url.options.originalStyle);
+                highlight_feature_from_url = null;
+            }
+        }
+        
+        // Function to find, zoom to, and highlight a feature from the URL
+        function searchAndHighlightFromUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const namaUnit = urlParams.get('nama_unit');
+            
+            if (!namaUnit) return;
+            
+            // A list of all your GeoJSON layers to search through
+            const layersToSearch = [
+                layer_Karangrejo_1,
+                layer_Kramat_2,
+                layer_Bedanten_3,
+                layer_Manyarejo_4,
+                layer_GEMWalkBetoyoKauman_5,
+                layer_GEMWalkBetoyoGuci_6,
+                layer_EastGateManyarsidorukun_7,
+                layer_WestGateBanyuwangi_8
+            ];
+            
+            clearHighlightFromUrl(); // Clear any previous highlight
+            
+            let foundFeature = false;
+            
+            // Loop through each layer and then each feature to find a match
+            layersToSearch.forEach(layer => {
+                layer.eachLayer(function(featureLayer) {
+                    if (featureLayer.feature.properties.Nama_unit === namaUnit && !foundFeature) {
+                        highlight_feature_from_url = featureLayer;
+                        
+                        // Store the original style to restore it later
+                        if (!highlight_feature_from_url.options.originalStyle) {
+                             highlight_feature_from_url.options.originalStyle = highlight_feature_from_url.options.style;
+                        }
+
+                        // Apply the new highlight style
+                        highlight_feature_from_url.setStyle(highlightStyleFromUrl);
+                        
+                        // Fit the map view to the bounds of the found feature
+                        map.fitBounds(highlight_feature_from_url.getBounds());
+                        
+                        // Open the popup for the feature
+                        highlight_feature_from_url.openPopup();
+                        
+                        foundFeature = true;
+                    }
+                });
+            });
+        }
+        
+        // Call the new function when the page loads to check for a URL parameter
+        window.onload = function() {
+            setBounds();
+            searchAndHighlightFromUrl();
+        };
+        
+        // --- NEW CODE END ---
+        
+        // Your existing search bar configuration
+        var search_layer_Karangrejo_1 = L.control.search({
+            layer: layer_Karangrejo_1,
+            initial: false,
+            hideMarkerOnCollapse: true,
+            collapsed: true,
+            container: 'map',
+            textPlaceholder: 'Search Karangrejo...',
+            propertyName: 'Nama_unit',
+            tooltipLimit: 10,
+            zoom: 18,
+            marker: false,
+            moveToLocation: function (latlng, title, map) {
+                var layer = highlight_feature_search;
+                if (layer) {
+                    layer.setStyle(layer.options.originalStyle);
+                    highlight_feature_search = null;
+                }
+                var layers = L.polygon(latlng);
+                applySearchHighlight(layers);
+                layers.openPopup();
+            }
+        });
+        search_layer_Karangrejo_1.addTo(map);
+
+        var search_layer_Kramat_2 = L.control.search({
+            layer: layer_Kramat_2,
+            initial: false,
+            hideMarkerOnCollapse: true,
+            collapsed: true,
+            container: 'map',
+            textPlaceholder: 'Search Kramat...',
+            propertyName: 'Nama_unit',
+            tooltipLimit: 10,
+            zoom: 18,
+            marker: false,
+            moveToLocation: function (latlng, title, map) {
+                var layer = highlight_feature_search;
+                if (layer) {
+                    layer.setStyle(layer.options.originalStyle);
+                    highlight_feature_search = null;
+                }
+                var layers = L.polygon(latlng);
+                applySearchHighlight(layers);
+                layers.openPopup();
+            }
+        });
+        search_layer_Kramat_2.addTo(map);
+
+        var search_layer_Bedanten_3 = L.control.search({
+            layer: layer_Bedanten_3,
+            initial: false,
+            hideMarkerOnCollapse: true,
+            collapsed: true,
+            container: 'map',
+            textPlaceholder: 'Search Bedanten...',
+            propertyName: 'Nama_unit',
+            tooltipLimit: 10,
+            zoom: 18,
+            marker: false,
+            moveToLocation: function (latlng, title, map) {
+                var layer = highlight_feature_search;
+                if (layer) {
+                    layer.setStyle(layer.options.originalStyle);
+                    highlight_feature_search = null;
+                }
+                var layers = L.polygon(latlng);
+                applySearchHighlight(layers);
+                layers.openPopup();
+            }
+        });
+        search_layer_Bedanten_3.addTo(map);
+
+        var search_layer_Manyarejo_4 = L.control.search({
+            layer: layer_Manyarejo_4,
+            initial: false,
+            hideMarkerOnCollapse: true,
+            collapsed: true,
+            container: 'map',
+            textPlaceholder: 'Search Manyarejo...',
+            propertyName: 'Nama_unit',
+            tooltipLimit: 10,
+            zoom: 18,
+            marker: false,
+            moveToLocation: function (latlng, title, map) {
+                var layer = highlight_feature_search;
+                if (layer) {
+                    layer.setStyle(layer.options.originalStyle);
+                    highlight_feature_search = null;
+                }
+                var layers = L.polygon(latlng);
+                applySearchHighlight(layers);
+                layers.openPopup();
+            }
+        });
+        search_layer_Manyarejo_4.addTo(map);
+        
+        function applySearchHighlight(feature) {
+            highlight_feature_search = feature;
+            feature.options.originalStyle = feature.options.style;
+            var style = {"stroke": true, "color": "#00ffff", "weight": 3, "opacity": 1,"fill": true, "fillOpacity": 0.5};
+            feature.setStyle(style);
+        }
+        
+        function applyClickHighlight(feature) {
+            highlight_feature_click = feature;
+            feature.options.originalStyle = feature.options.style;
+            feature.setStyle({
+                "color": "red",
+                "weight": 3
+            });
+        }
+        
+        var homeButton = function() {
+            var container = L.Control.extend({
+                onAdd: function(map) {
+                    var div = L.DomUtil.create('div', 'leaflet-control-home leaflet-bar');
+                    div.innerHTML = '<button type="button" class="home-button" aria-label="Zoom to initial extent" style="width: 30px; height: 30px; border: none; background-color: white;"></button>';
+                    div.title = 'Zoom to initial extent';
+                    L.DomEvent.on(div, 'click', function() {
+                        map.fitBounds([[-7.110195190137186,112.54631640132943],[-7.019549845255293,112.66806813870836]]);
+                    });
+                    return div;
+                }
+            });
+            return new container();
+        };
+        var homeButton = new homeButton();
         homeButton.addTo(map);
 
         // New feature: Highlight on click
@@ -1665,6 +1241,7 @@
         layer_EastGateManyarsidorukun_7.eachLayer(setupClickHighlight);
         layer_WestGateBanyuwangi_8.eachLayer(setupClickHighlight);
 
+        // End of existing search bar configuration
         </script>
     </body>
 </html>
