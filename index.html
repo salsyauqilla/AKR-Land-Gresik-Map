@@ -58,12 +58,30 @@
             stroke-linecap: round;
             stroke-linejoin: round;
         }
+        
+        /* Opacity slider CSS */
+        .opacity-control {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
         </style>
         <title></title>
     </head>
     <body>
         <div id="map">
         </div>
+        
+        <div class="opacity-control">
+            <label for="opacity-slider">Layer Opacity:</label>
+            <input type="range" id="opacity-slider" min="0" max="1" step="0.1" value="1">
+        </div>
+
         <script src="js/qgis2web_expressions.js"></script>
         <script src="js/leaflet.js"></script>
         <script src="js/L.Control.Layers.Tree.min.js"></script>
@@ -876,21 +894,6 @@
                 interactive: true,
             }
                     break;
-                case 'FUTURE DEVELOP':
-                    return {
-                pane: 'pane_GEMWalkBetoyoKauman_5',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(255,255,255,1.0)',
-                interactive: true,
-            }
-                    break;
                 case 'HOLD':
                     return {
                 pane: 'pane_GEMWalkBetoyoKauman_5',
@@ -917,7 +920,7 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(255,245,240,1.0)',
+                fillColor: 'rgba(255,255,255,1.0)',
                 interactive: true,
             }
                     break;
@@ -1074,21 +1077,6 @@
                 interactive: true,
             }
                     break;
-                case 'FUTURE DEVELOP':
-                    return {
-                pane: 'pane_GEMWalkBetoyoGuci_6',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(255,255,255,1.0)',
-                interactive: true,
-            }
-                    break;
                 case 'HOLD':
                     return {
                 pane: 'pane_GEMWalkBetoyoGuci_6',
@@ -1115,7 +1103,7 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(255,158,23,1.0)',
+                fillColor: 'rgba(255,255,255,1.0)',
                 interactive: true,
             }
                     break;
@@ -1191,12 +1179,20 @@
                         <td class="visible-with-data" id="tglbrakhir">' + (feature.properties['tglbrakhir'] !== null ? autolinker.link(String(feature.properties['tglbrakhir']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
+                        <th scope="row">Tanah Sisa</th>\
+                        <td class="visible-with-data" id="Tanah Sisa">' + (feature.properties['Tanah Sisa'] !== null ? autolinker.link(String(feature.properties['Tanah Sisa']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
                         <th scope="row">Pemilik</th>\
                         <td class="visible-with-data" id="Pemilik">' + (feature.properties['Pemilik'] !== null ? autolinker.link(String(feature.properties['Pemilik']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Keterangan</th>\
                         <td class="visible-with-data" id="Keterangan">' + (feature.properties['Keterangan'] !== null ? autolinker.link(String(feature.properties['Keterangan']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">error-percentage</th>\
+                        <td class="visible-with-data" id="error-percentage">' + (feature.properties['error-percentage'] !== null ? autolinker.link(String(feature.properties['error-percentage']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -1268,21 +1264,6 @@
                 interactive: true,
             }
                     break;
-                case 'FUTURE DEVELOP':
-                    return {
-                pane: 'pane_EastGateManyarsidorukun_7',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(255,255,255,1.0)',
-                interactive: true,
-            }
-                    break;
                 case 'HOLD':
                     return {
                 pane: 'pane_EastGateManyarsidorukun_7',
@@ -1309,7 +1290,22 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(252,233,149,1.0)',
+                fillColor: 'rgba(255,255,255,1.0)',
+                interactive: true,
+            }
+                    break;
+                case 'Anomaly':
+                    return {
+                pane: 'pane_EastGateManyarsidorukun_7',
+                opacity: 1,
+                color: 'rgba(82,82,82,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(247,247,247,1.0)',
                 interactive: true,
             }
                     break;
@@ -1377,6 +1373,10 @@
                         <th scope="row">Keterangan</th>\
                         <td class="visible-with-data" id="Keterangan">' + (feature.properties['Keterangan'] !== null ? autolinker.link(String(feature.properties['Keterangan']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
+                    <tr>\
+                        <th scope="row">error-percentage</th>\
+                        <td class="visible-with-data" id="error-percentage">' + (feature.properties['error-percentage'] !== null ? autolinker.link(String(feature.properties['error-percentage']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
 			layer.on('popupopen', function(e) {
@@ -1385,10 +1385,8 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_WestGateBanyuwangi_8_0(feature) {
-            switch(String(feature.properties['Status'])) {
-                case 'Available':
-                    return {
+        function style_WestGateBanyuwangi_8_0() {
+            return {
                 pane: 'pane_WestGateBanyuwangi_8',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -1398,100 +1396,8 @@
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(255,255,255,1.0)',
+                fillColor: 'rgba(196,62,40,1.0)',
                 interactive: true,
-            }
-                    break;
-                case 'AVAILABLE':
-                    return {
-                pane: 'pane_WestGateBanyuwangi_8',
-                opacity: 1,
-                color: 'rgba(0,0,0,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(255,255,255,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Sold':
-                    return {
-                pane: 'pane_WestGateBanyuwangi_8',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(0,227,3,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'SOLD':
-                    return {
-                pane: 'pane_WestGateBanyuwangi_8',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(0,227,3,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'FUTURE DEVELOP':
-                    return {
-                pane: 'pane_WestGateBanyuwangi_8',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(255,255,255,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'HOLD':
-                    return {
-                pane: 'pane_WestGateBanyuwangi_8',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(34,131,192,1.0)',
-                interactive: true,
-            }
-                    break;
-                default:
-                    return {
-                pane: 'pane_WestGateBanyuwangi_8',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(230,196,163,1.0)',
-                interactive: true,
-            }
-                    break;
             }
         }
         map.createPane('pane_WestGateBanyuwangi_8');
@@ -1508,163 +1414,68 @@
         });
         bounds_group.addLayer(layer_WestGateBanyuwangi_8);
         map.addLayer(layer_WestGateBanyuwangi_8);
-        var baseMaps = {};
-        var overlaysTree = [
-            {label: '<input type="checkbox" checked="checked" id="layer_WestGateBanyuwangi_8_checkbox" />West Gate Banyuwangi', layer: layer_WestGateBanyuwangi_8},
-            {label: '<input type="checkbox" checked="checked" id="layer_EastGateManyarsidorukun_7_checkbox" />East Gate Manyarsidorukun', layer: layer_EastGateManyarsidorukun_7},
-            {label: '<input type="checkbox" checked="checked" id="layer_GEMWalkBetoyoGuci_6_checkbox" />GEM Walk Betoyo Guci', layer: layer_GEMWalkBetoyoGuci_6},
-            {label: '<input type="checkbox" checked="checked" id="layer_GEMWalkBetoyoKauman_5_checkbox" />GEM Walk Betoyo Kauman', layer: layer_GEMWalkBetoyoKauman_5},
-            {label: '<input type="checkbox" checked="checked" id="layer_Manyarejo_4_checkbox" />Manyarejo', layer: layer_Manyarejo_4},
-            {label: '<input type="checkbox" checked="checked" id="layer_Bedanten_3_checkbox" />Bedanten', layer: layer_Bedanten_3},
-            {label: '<input type="checkbox" checked="checked" id="layer_Kramat_2_checkbox" />Kramat', layer: layer_Kramat_2},
-            {label: '<input type="checkbox" checked="checked" id="layer_Karangrejo_1_checkbox" />Karangrejo', layer: layer_Karangrejo_1},
-            {label: "Google Satellite", layer: layer_GoogleSatellite_0},
-        ];
-        var lay = L.control.layers.tree(baseMaps, overlaysTree,{
-            // TODO collapsed: true,
+        var osmGeocoder = new L.Control.Photon({
+            url: 'https://photon.komoot.io/api/',
+            geocodingQueryParams: {
+                format: 'json',
+                limit: 3,
+                lat: -7.064872242663953,
+                lon: 112.60719227001888
+            },
+            placeholder: 'Search location...',
+            maxwidth: 200,
             collapsed: true,
+            fadeOut: true,
+            title: 'Search'
+        }).addTo(map);
+        document.getElementsByClassName('leaflet-control-photon')[0].style.display = 'flex';
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'<img src="legend/WestGateBanyuwangi_8.png" /> West Gate Banyuwangi': layer_WestGateBanyuwangi_8,'<img src="legend/EastGateManyarsidorukun_7.png" /> East Gate Manyarsidorukun': layer_EastGateManyarsidorukun_7,'<img src="legend/GEMWalkBetoyoGuci_6.png" /> GEM Walk Betoyo Guci': layer_GEMWalkBetoyoGuci_6,'<img src="legend/GEMWalkBetoyoKauman_5.png" /> GEM Walk Betoyo Kauman': layer_GEMWalkBetoyoKauman_5,'<img src="legend/Manyarejo_4.png" /> Manyarejo': layer_Manyarejo_4,'<img src="legend/Bedanten_3.png" /> Bedanten': layer_Bedanten_3,'<img src="legend/Kramat_2.png" /> Kramat': layer_Kramat_2,'<img src="legend/Karangrejo_1.png" /> Karangrejo': layer_Karangrejo_1,"Google Satellite": layer_GoogleSatellite_0}).addTo(map);
+        L.control.scale({position: 'bottomleft', imperial: false}).addTo(map);
+        L.Control.ImageShow = L.Control.extend({
+            options: {
+                position: 'bottomleft',
+                name: 'ImageShow'
+            },
+            onAdd: function (map) {
+                // create the control container
+                var container = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
+                // add event listener for click
+                L.DomEvent.addListener(container, 'click', this.onClick);
+                // add the image
+                var img = L.DomUtil.create('img', null, container);
+                img.src = 'images/legend.png';
+                img.alt = 'Legend';
+                img.style.width = '100px';
+                img.style.height = 'auto';
+                return container;
+            },
+            onClick: function(e) {
+                // do nothing
+            }
         });
-        lay.addTo(map);
+        L.control.imageshow = function (options) {
+            return new L.Control.ImageShow(options);
+        };
+        L.control.imageshow().addTo(map);
         setBounds();
         
-        var highlight_feature_click = null; // New global variable to store the clicked feature
-        var highlight_feature_search = null; // Retained for search functionality
-
-        function applyClickHighlight(layer) {
-            // Restore the previous click-highlighted feature's style
-            if (highlight_feature_click) {
-                highlight_feature_click.setStyle(highlight_feature_click.options.originalStyle);
-            }
-
-            // Save the original style of the new feature before highlighting it
-            layer.options.originalStyle = Object.assign({}, layer.options);
-            
-            // Apply the new red highlight
-            layer.setStyle({
-                stroke: 'red',
-                color: 'red',
-                weight: 3,
-            });
-            
-            // Set the new feature as the highlighted one
-            highlight_feature_click = layer;
-        }
-
-        // Search bar functionality
-        var searchLayer = L.layerGroup([
-            layer_Karangrejo_1,
-            layer_Kramat_2,
-            layer_Bedanten_3,
-            layer_Manyarejo_4,
-            layer_GEMWalkBetoyoKauman_5,
-            layer_GEMWalkBetoyoGuci_6,
-            layer_EastGateManyarsidorukun_7,
-            layer_WestGateBanyuwangi_8,
-        ]);
-
-        var searchNIB = new L.Control.Search({
-            layer: searchLayer,
-            propertyName: 'NIB',
-            initial: false,
-            zoom: 22,
-            hideMarkerOnCollapse: true,
-            collapsed: true,
-            textPlaceholder: 'Search NIB...',
-            moveToLocation: function(latlng, title, map) {
-                map.setView(latlng, 22);
-            }
-        });
-        searchNIB.addTo(map);
-
-        var searchNamaUnit = new L.Control.Search({
-            layer: searchLayer,
-            propertyName: 'Nama_unit',
-            initial: false,
-            zoom: 22,
-            hideMarkerOnCollapse: true,
-            collapsed: true,
-            textPlaceholder: 'Search Nama_unit...',
-            moveToLocation: function(latlng, title, map) {
-                map.setView(latlng, 22);
-            }
-        });
-        searchNamaUnit.addTo(map);
-        
-        // Event listener for search location found
-        function onSearchLocationFound(e) {
-            if (e.layer._popup) {
-                e.layer.openPopup();
-            }
-            if (highlight_feature_search) {
-                // Restore the original style of the previous highlighted feature
-                highlight_feature_search.setStyle(highlight_feature_search.options.originalStyle);
-            }
-            
-            // Clear any click highlight
-            if (highlight_feature_click) {
-                highlight_feature_click.setStyle(highlight_feature_click.options.originalStyle);
-                highlight_feature_click = null;
-            }
-
-            // Save a copy of the original style of the new feature before highlighting it
-            e.layer.options.originalStyle = Object.assign({}, e.layer.options);
-
-            highlight_feature_search = e.layer;
-            e.layer.setStyle({
-                color: '#ffff00',
-                fillColor: '#ffff00',
-                dashArray: '',
-                fillOpacity: 1
-            });
-        }
-
-        // Event listener for search collapsed
-        function onSearchCollapsed(e) {
-            if (highlight_feature_search) {
-                // Restore the original style when the search is collapsed
-                highlight_feature_search.setStyle(highlight_feature_search.options.originalStyle);
-                highlight_feature_search = null;
-            }
-        }
-
-        searchNIB.on('search:locationfound', onSearchLocationFound);
-        searchNIB.on('search:collapsed', onSearchCollapsed);
-        searchNamaUnit.on('search:locationfound', onSearchLocationFound);
-        searchNamaUnit.on('search:collapsed', onSearchCollapsed);
-
-        // Home button functionality
-        var homeButton = L.control({position: 'topleft'});
-        homeButton.onAdd = function(map) {
-            var div = L.DomUtil.create('div', 'leaflet-control leaflet-control-home');
-            div.innerHTML = '<button type="button" class="home-button" aria-label="Zoom to initial extent" style="width: 30px; height: 30px; border: none; background-color: white;"></button>';
-            div.title = 'Zoom to initial extent';
-            L.DomEvent.on(div, 'click', function() {
-                map.fitBounds([[-7.110195190137186,112.54631640132943],[-7.019549845255293,112.66806813870836]]);
-            });
-            return div;
+        // Opacity slider JavaScript
+        var opacitySlider = document.getElementById('opacity-slider');
+        opacitySlider.oninput = function() {
+            // This code will set the opacity for ALL layers added by geoJson.
+            // If you only want to affect a single layer, you'll need to specify its name.
+            // Example: layer_Karangrejo_1.setOpacity(opacitySlider.value);
+            // I'm assuming you want to control the opacity of ALL the data layers, not the base map.
+            layer_Karangrejo_1.setOpacity(opacitySlider.value);
+            layer_Kramat_2.setOpacity(opacitySlider.value);
+            layer_Bedanten_3.setOpacity(opacitySlider.value);
+            layer_Manyarejo_4.setOpacity(opacitySlider.value);
+            layer_GEMWalkBetoyoKauman_5.setOpacity(opacitySlider.value);
+            layer_GEMWalkBetoyoGuci_6.setOpacity(opacitySlider.value);
+            layer_EastGateManyarsidorukun_7.setOpacity(opacitySlider.value);
+            layer_WestGateBanyuwangi_8.setOpacity(opacitySlider.value);
         };
-        homeButton.addTo(map);
-
-        // New feature: Highlight on click
-        function setupClickHighlight(layer) {
-            layer.on('click', function(e) {
-                if (highlight_feature_search) {
-                    highlight_feature_search.setStyle(highlight_feature_search.options.originalStyle);
-                    highlight_feature_search = null;
-                }
-                applyClickHighlight(e.target);
-            });
-        }
-        
-        layer_Karangrejo_1.eachLayer(setupClickHighlight);
-        layer_Kramat_2.eachLayer(setupClickHighlight);
-        layer_Bedanten_3.eachLayer(setupClickHighlight);
-        layer_Manyarejo_4.eachLayer(setupClickHighlight);
-        layer_GEMWalkBetoyoKauman_5.eachLayer(setupClickHighlight);
-        layer_GEMWalkBetoyoGuci_6.eachLayer(setupClickHighlight);
-        layer_EastGateManyarsidorukun_7.eachLayer(setupClickHighlight);
-        layer_WestGateBanyuwangi_8.eachLayer(setupClickHighlight);
-
         </script>
     </body>
 </html>
