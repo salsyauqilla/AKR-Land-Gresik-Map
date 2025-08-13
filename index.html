@@ -89,44 +89,6 @@
         <script src="https://cdn.jsdelivr.net/npm/leaflet-search@3.0.9/dist/leaflet-search.min.js"></script>
 
         <script>
-			// --- OPACITY SLIDER FUNCTIONALITY ---
-
-// Create an array of all the layers you want to control.
-// This is crucial, as it allows a single slider to affect multiple layers.
-const layersToControl = [
-    // This array should contain the actual variable names of your layers.
-    // 'osmLayer' is often the variable for the satellite or base map layer.
-    // If your base map has a different variable name, change it here.
-    osmLayer,
-    layer_Karangrejo_1,
-    layer_Kramat_2,
-    layer_Bedanten_3,
-    layer_Manyarejo_4,
-    layer_GEMWalkBetoyoKauman_5,
-    layer_GEMWalkBetoyoGuci_6,
-    layer_EastGateManyarsidorukun_7,
-    layer_WestGateBanyuwangi_8
-];
-
-// Get the opacity slider element from the HTML document.
-const opacitySlider = document.getElementById('opacity-slider');
-
-// Check if the slider element exists before adding the event listener.
-if (opacitySlider) {
-    opacitySlider.addEventListener('input', function(e) {
-        // Get the new opacity value (a number between 0 and 1).
-        const newOpacity = e.target.value;
-
-        // Loop through all the layers and set the new opacity.
-        layersToControl.forEach(layer => {
-            // Check if the layer exists and has a setOpacity method.
-            if (layer && typeof layer.setOpacity === 'function') {
-                layer.setOpacity(newOpacity);
-            }
-        });
-    });
-}
-
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
         }).fitBounds([[-7.110195190137186,112.54631640132943],[-7.019549845255293,112.66806813870836]]);
@@ -254,8 +216,6 @@ if (opacitySlider) {
         map.getPane('pane_Karangrejo_1').style.zIndex = 401;
         map.getPane('pane_Karangrejo_1').style['mix-blend-mode'] = 'normal';
         var layer_Karangrejo_1 = new L.geoJson(json_Karangrejo_1, {
-    // your other properties here
-}).addTo(map);
             attribution: '',
             interactive: true,
             dataVar: 'json_Karangrejo_1',
@@ -462,8 +422,6 @@ if (opacitySlider) {
         map.getPane('pane_Kramat_2').style.zIndex = 402;
         map.getPane('pane_Kramat_2').style['mix-blend-mode'] = 'normal';
         var layer_Kramat_2 = new L.geoJson(json_Kramat_2, {
-    // your other properties here
-}).addTo(map);
             attribution: '',
             interactive: true,
             dataVar: 'json_Kramat_2',
@@ -580,8 +538,6 @@ if (opacitySlider) {
         map.getPane('pane_Bedanten_3').style.zIndex = 403;
         map.getPane('pane_Bedanten_3').style['mix-blend-mode'] = 'normal';
         var layer_Bedanten_3 = new L.geoJson(json_Bedanten_3, {
-    // your other properties here
-}).addTo(map);
             attribution: '',
             interactive: true,
             dataVar: 'json_Bedanten_3',
@@ -788,8 +744,6 @@ if (opacitySlider) {
         map.getPane('pane_Manyarejo_4').style.zIndex = 404;
         map.getPane('pane_Manyarejo_4').style['mix-blend-mode'] = 'normal';
         var layer_Manyarejo_4 = new L.geoJson(json_Manyarejo_4, {
-    // your other properties here
-}).addTo(map);
             attribution: '',
             interactive: true,
             dataVar: 'json_Manyarejo_4',
@@ -988,8 +942,6 @@ if (opacitySlider) {
         map.getPane('pane_GEMWalkBetoyoKauman_5').style.zIndex = 405;
         map.getPane('pane_GEMWalkBetoyoKauman_5').style['mix-blend-mode'] = 'normal';
         var layer_GEMWalkBetoyoKauman_5 = new L.geoJson(json_GEMWalkBetoyoKauman_5, {
-    // your other properties here
-}).addTo(map);
             attribution: '',
             interactive: true,
             dataVar: 'json_GEMWalkBetoyoKauman_5',
@@ -1188,8 +1140,6 @@ if (opacitySlider) {
         map.getPane('pane_GEMWalkBetoyoGuci_6').style.zIndex = 406;
         map.getPane('pane_GEMWalkBetoyoGuci_6').style['mix-blend-mode'] = 'normal';
         var layer_GEMWalkBetoyoGuci_6 = new L.geoJson(json_GEMWalkBetoyoGuci_6, {
-    // your other properties here
-}).addTo(map);
             attribution: '',
             interactive: true,
             dataVar: 'json_GEMWalkBetoyoGuci_6',
@@ -1369,8 +1319,6 @@ if (opacitySlider) {
         map.getPane('pane_EastGateManyarsidorukun_7').style.zIndex = 407;
         map.getPane('pane_EastGateManyarsidorukun_7').style['mix-blend-mode'] = 'normal';
         var layer_EastGateManyarsidorukun_7 = new L.geoJson(json_EastGateManyarsidorukun_7, {
-    // your other properties here
-}).addTo(map);
             attribution: '',
             interactive: true,
             dataVar: 'json_EastGateManyarsidorukun_7',
@@ -1550,8 +1498,6 @@ if (opacitySlider) {
         map.getPane('pane_WestGateBanyuwangi_8').style.zIndex = 408;
         map.getPane('pane_WestGateBanyuwangi_8').style['mix-blend-mode'] = 'normal';
         var layer_WestGateBanyuwangi_8 = new L.geoJson(json_WestGateBanyuwangi_8, {
-    // your other properties here
-}).addTo(map);
             attribution: '',
             interactive: true,
             dataVar: 'json_WestGateBanyuwangi_8',
