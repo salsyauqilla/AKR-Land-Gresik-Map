@@ -118,6 +118,9 @@
 // This is crucial, as it allows a single slider to affect multiple layers.
 const layersToControl = [
     // This array should contain the actual variable names of your layers.
+    // 'osmLayer' is often the variable for the satellite or base map layer.
+    // If your base map has a different variable name, change it here.
+    osmLayer,
     layer_Karangrejo_1,
     layer_Kramat_2,
     layer_Bedanten_3,
@@ -146,6 +149,7 @@ if (opacitySlider) {
         });
     });
 }
+
 
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
