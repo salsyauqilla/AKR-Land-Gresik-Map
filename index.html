@@ -89,11 +89,15 @@
         <script src="https://cdn.jsdelivr.net/npm/leaflet-search@3.0.9/dist/leaflet-search.min.js"></script>
 
         <script>
-			// --- THE OPACITY SLIDER FUNCTIONALITY ---
-// This code should come AFTER all your layers have been created and added to the map.
+			// --- OPACITY SLIDER FUNCTIONALITY ---
 
+// Create an array of all the layers you want to control.
+// This is crucial, as it allows a single slider to affect multiple layers.
 const layersToControl = [
     // This array should contain the actual variable names of your layers.
+    // 'osmLayer' is often the variable for the satellite or base map layer.
+    // If your base map has a different variable name, change it here.
+    osmLayer,
     layer_Karangrejo_1,
     layer_Kramat_2,
     layer_Bedanten_3,
@@ -104,19 +108,25 @@ const layersToControl = [
     layer_WestGateBanyuwangi_8
 ];
 
+// Get the opacity slider element from the HTML document.
 const opacitySlider = document.getElementById('opacity-slider');
 
+// Check if the slider element exists before adding the event listener.
 if (opacitySlider) {
     opacitySlider.addEventListener('input', function(e) {
+        // Get the new opacity value (a number between 0 and 1).
         const newOpacity = e.target.value;
 
+        // Loop through all the layers and set the new opacity.
         layersToControl.forEach(layer => {
+            // Check if the layer exists and has a setOpacity method.
             if (layer && typeof layer.setOpacity === 'function') {
                 layer.setOpacity(newOpacity);
             }
         });
     });
 }
+
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
         }).fitBounds([[-7.110195190137186,112.54631640132943],[-7.019549845255293,112.66806813870836]]);
