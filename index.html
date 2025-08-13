@@ -1632,18 +1632,25 @@
         searchNamaUnit.on('search:locationfound', onSearchLocationFound);
         searchNamaUnit.on('search:collapsed', onSearchCollapsed);
 
-        // Home button functionality
-        var homeButton = L.control({position: 'topleft'});
-        homeButton.onAdd = function(map) {
-            var div = L.DomUtil.create('div', 'leaflet-control leaflet-control-home');
-            div.innerHTML = '<button type="button" class="home-button" aria-label="Zoom to initial extent" style="width: 30px; height: 30px; border: none; background-color: white;"></button>';
-            div.title = 'Zoom to initial extent';
-            L.DomEvent.on(div, 'click', function() {
-                map.fitBounds([[-7.110195190137186,112.54631640132943],[-7.019549845255293,112.66806813870836]]);
-            });
-            return div;
-        };
-        homeButton.addTo(map);
+// Home button functionality
+var homeButton = L.control({position: 'topleft'});
+homeButton.onAdd = function(map) {
+    var div = L.DomUtil.create('div', 'leaflet-control leaflet-control-home');
+    
+    // The button now contains a <i> tag for the Font Awesome icon
+    div.innerHTML = '<button type="button" class="home-button" aria-label="Zoom to initial extent" style="width: 30px; height: 30px; border: none; background-color: white;">' +
+                    '<i class="fa fa-home"></i>' +
+                    '</button>';
+    
+    div.title = 'Zoom to initial extent';
+    L.DomEvent.on(div, 'click', function() {
+        map.fitBounds([[-7.110195190137186,112.54631640132943],[-7.019549845255293,112.66806813870836]]);
+    });
+    return div;
+};
+
+// This line adds the button to the map instance
+homeButton.addTo(map);
 
         // New feature: Highlight on click
         function setupClickHighlight(layer) {
