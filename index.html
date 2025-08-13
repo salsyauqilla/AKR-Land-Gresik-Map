@@ -24,24 +24,6 @@
             margin: 0;
         }
 
-		/* ADD THIS CSS to your existing style sheet */
-.opacity-control {
-    position: absolute;
-    bottom: 10px; /* This moves the slider to the bottom */
-    left: 10px;   /* This moves the slider to the left */
-    z-index: 1000;
-    background: white;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 1px 5px rgba(0,0,0,0.4);
-    font-family: Arial, sans-serif;
-    text-align: center;
-}
-
-.opacity-control input[type=range] {
-    width: 150px;
-}	
-		
         /* Home button CSS */
         .leaflet-touch .leaflet-control-home {
             width: 30px;
@@ -80,11 +62,6 @@
         <title></title>
     </head>
     <body>
-		<!-- ADD THIS HTML where you want the slider to appear -->
-<div class="opacity-control">
-    <label for="opacity-slider">Layer Opacity:</label>
-    <input type="range" id="opacity-slider" min="0" max="1" step="0.1" value="1">
-</div>
         <div id="map">
         </div>
         <script src="js/qgis2web_expressions.js"></script>
@@ -112,45 +89,6 @@
         <script src="https://cdn.jsdelivr.net/npm/leaflet-search@3.0.9/dist/leaflet-search.min.js"></script>
 
         <script>
-			// --- OPACITY SLIDER FUNCTIONALITY ---
-
-// Create an array of all the layers you want to control.
-// This is crucial, as it allows a single slider to affect multiple layers.
-const layersToControl = [
-    // This array should contain the actual variable names of your layers.
-    // 'osmLayer' is often the variable for the satellite or base map layer.
-    // If your base map has a different variable name, change it here.
-    osmLayer,
-    layer_Karangrejo_1,
-    layer_Kramat_2,
-    layer_Bedanten_3,
-    layer_Manyarejo_4,
-    layer_GEMWalkBetoyoKauman_5,
-    layer_GEMWalkBetoyoGuci_6,
-    layer_EastGateManyarsidorukun_7,
-    layer_WestGateBanyuwangi_8
-];
-
-// Get the opacity slider element from the HTML document.
-const opacitySlider = document.getElementById('opacity-slider');
-
-// Check if the slider element exists before adding the event listener.
-if (opacitySlider) {
-    opacitySlider.addEventListener('input', function(e) {
-        // Get the new opacity value (a number between 0 and 1).
-        const newOpacity = e.target.value;
-
-        // Loop through all the layers and set the new opacity.
-        layersToControl.forEach(layer => {
-            // Check if the layer exists and has a setOpacity method.
-            if (layer && typeof layer.setOpacity === 'function') {
-                layer.setOpacity(newOpacity);
-            }
-        });
-    });
-}
-
-
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
         }).fitBounds([[-7.110195190137186,112.54631640132943],[-7.019549845255293,112.66806813870836]]);
