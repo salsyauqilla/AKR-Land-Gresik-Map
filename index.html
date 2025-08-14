@@ -63,7 +63,44 @@
     </head>
     <body>
         <div id="map">
-        </div>
+<div id="sliders-container" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 1000; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+    <div style="margin-bottom: 5px;">
+        <label for="opacity-slider-Karangrejo" style="margin-right: 10px;">Karangrejo Opacity:</label>
+        <input type="range" id="opacity-slider-Karangrejo" min="0" max="1" step="0.1" value="1">
+    </div>
+    <div style="margin-bottom: 5px;">
+        <label for="opacity-slider-Kramat" style="margin-right: 10px;">Kramat Opacity:</label>
+        <input type="range" id="opacity-slider-Kramat" min="0" max="1" step="0.1" value="1">
+    </div>
+    <div style="margin-bottom: 5px;">
+        <label for="opacity-slider-Bedanten" style="margin-right: 10px;">Bedanten Opacity:</label>
+        <input type="range" id="opacity-slider-Bedanten" min="0" max="1" step="0.1" value="1">
+    </div>
+    <div style="margin-bottom: 5px;">
+        <label for="opacity-slider-Manyarejo" style="margin-right: 10px;">Manyarejo Opacity:</label>
+        <input type="range" id="opacity-slider-Manyarejo" min="0" max="1" step="0.1" value="1">
+    </div>
+    <div style="margin-bottom: 5px;">
+        <label for="opacity-slider-GEMWalkBetoyoKauman" style="margin-right: 10px;">GEMWalkBetoyoKauman Opacity:</label>
+        <input type="range" id="opacity-slider-GEMWalkBetoyoKauman" min="0" max="1" step="0.1" value="1">
+    </div>
+    <div style="margin-bottom: 5px;">
+        <label for="opacity-slider-GEMWalkBetoyoGuci" style="margin-right: 10px;">GEMWalkBetoyoGuci Opacity:</label>
+        <input type="range" id="opacity-slider-GEMWalkBetoyoGuci" min="0" max="1" step="0.1" value="1">
+    </div>
+    <div style="margin-bottom: 5px;">
+        <label for="opacity-slider-EastGateManyarsidorukun" style="margin-right: 10px;">EastGateManyarsidorukun Opacity:</label>
+        <input type="range" id="opacity-slider-EastGateManyarsidorukun" min="0" max="1" step="0.1" value="1">
+    </div>
+    <div style="margin-bottom: 5px;">
+        <label for="opacity-slider-WestGateBanyuwangi" style="margin-right: 10px;">WestGateBanyuwangi Opacity:</label>
+        <input type="range" id="opacity-slider-WestGateBanyuwangi" min="0" max="1" step="0.1" value="1">
+    </div>
+    <div>
+        <label for="opacity-slider-GoogleSatellite" style="margin-right: 10px;">GoogleSatellite Opacity:</label>
+        <input type="range" id="opacity-slider-GoogleSatellite" min="0" max="1" step="0.1" value="1">
+    </div>
+</div>
         <script src="js/qgis2web_expressions.js"></script>
         <script src="js/leaflet.js"></script>
         <script src="js/L.Control.Layers.Tree.min.js"></script>
@@ -89,6 +126,61 @@
         <script src="https://cdn.jsdelivr.net/npm/leaflet-search@3.0.9/dist/leaflet-search.min.js"></script>
 
         <script>
+			// Add this code after all the layer variables are defined
+
+// Karangrejo slider
+var karangrejoSlider = document.getElementById('opacity-slider-Karangrejo');
+karangrejoSlider.addEventListener('input', function() {
+    layer_Karangrejo_1.setOpacity(this.value);
+});
+
+// Kramat slider
+var kramatSlider = document.getElementById('opacity-slider-Kramat');
+kramatSlider.addEventListener('input', function() {
+    layer_Kramat_2.setOpacity(this.value);
+});
+
+// Bedanten slider
+var bedantenSlider = document.getElementById('opacity-slider-Bedanten');
+bedantenSlider.addEventListener('input', function() {
+    layer_Bedanten_3.setOpacity(this.value);
+});
+
+// Manyarejo slider
+var manyarejoSlider = document.getElementById('opacity-slider-Manyarejo');
+manyarejoSlider.addEventListener('input', function() {
+    layer_Manyarejo_4.setOpacity(this.value);
+});
+
+// GEMWalkBetoyoKauman slider
+var gemWalkBetoyoKaumanSlider = document.getElementById('opacity-slider-GEMWalkBetoyoKauman');
+gemWalkBetoyoKaumanSlider.addEventListener('input', function() {
+    layer_GEMWalkBetoyoKauman_5.setOpacity(this.value);
+});
+
+// GEMWalkBetoyoGuci slider
+var gemWalkBetoyoGuciSlider = document.getElementById('opacity-slider-GEMWalkBetoyoGuci');
+gemWalkBetoyoGuciSlider.addEventListener('input', function() {
+    layer_GEMWalkBetoyoGuci_6.setOpacity(this.value);
+});
+
+// EastGateManyarsidorukun slider
+var eastGateManyarsidorukunSlider = document.getElementById('opacity-slider-EastGateManyarsidorukun');
+eastGateManyarsidorukunSlider.addEventListener('input', function() {
+    layer_EastGateManyarsidorukun_7.setOpacity(this.value);
+});
+
+// WestGateBanyuwangi slider
+var westGateBanyuwangiSlider = document.getElementById('opacity-slider-WestGateBanyuwangi');
+westGateBanyuwangiSlider.addEventListener('input', function() {
+    layer_WestGateBanyuwangi_8.setOpacity(this.value);
+});
+
+// GoogleSatellite slider
+var googleSatelliteSlider = document.getElementById('opacity-slider-GoogleSatellite');
+googleSatelliteSlider.addEventListener('input', function() {
+    layer_GoogleSatellite_0.setOpacity(this.value);
+});
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
         }).fitBounds([[-7.110195190137186,112.54631640132943],[-7.019549845255293,112.66806813870836]]);
