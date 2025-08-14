@@ -64,6 +64,12 @@
     <body>
         <div id="map">
         </div>
+
+        <div id="slider-container" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 1000; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+            <label for="opacity-slider" style="margin-right: 10px;">Karangrejo Opacity:</label>
+            <input type="range" id="opacity-slider" min="0" max="1" step="0.1" value="1">
+        </div>
+
         <script src="js/qgis2web_expressions.js"></script>
         <script src="js/leaflet.js"></script>
         <script src="js/L.Control.Layers.Tree.min.js"></script>
@@ -226,6 +232,13 @@
         });
         bounds_group.addLayer(layer_Karangrejo_1);
         map.addLayer(layer_Karangrejo_1);
+
+        // Add this code after the layer_Karangrejo_1 variable is defined
+        var karangrejoSlider = document.getElementById('opacity-slider');
+        karangrejoSlider.addEventListener('input', function() {
+            layer_Karangrejo_1.setOpacity(this.value);
+        });
+
         function pop_Kramat_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -304,7 +317,7 @@
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 1.0,
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(255,255,255,1.0)',
@@ -319,7 +332,7 @@
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 1.0,
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(255,255,255,1.0)',
@@ -334,7 +347,7 @@
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 1.0,
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(0,227,3,1.0)',
@@ -349,7 +362,7 @@
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 1.0,
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(0,227,3,1.0)',
@@ -364,7 +377,7 @@
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 1.0,
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(255,255,255,1.0)',
@@ -379,7 +392,7 @@
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 1.0,
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(34,131,192,1.0)',
@@ -394,7 +407,7 @@
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 1.0,
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(145,82,45,1.0)',
@@ -409,7 +422,7 @@
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 1.0,
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(247,247,247,1.0)',
@@ -510,7 +523,7 @@
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 1.0,
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(127,64,203,1.0)',
@@ -525,7 +538,7 @@
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 1.0,
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(247,247,247,1.0)',
@@ -626,7 +639,7 @@
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 1.0,
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(255,255,255,1.0)',
@@ -641,7 +654,7 @@
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 1.0,
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(255,255,255,1.0)',
@@ -656,7 +669,7 @@
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 1.0,
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(0,227,3,1.0)',
@@ -671,7 +684,7 @@
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 1.0,
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(0,227,3,1.0)',
@@ -686,7 +699,7 @@
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 1.0,
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(100,93,94,1.0)',
@@ -701,7 +714,7 @@
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 1.0,
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(255,255,255,1.0)',
@@ -716,7 +729,7 @@
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 1.0,
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(34,131,192,1.0)',
@@ -731,7 +744,7 @@
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 1.0,
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(247,247,247,1.0)',
@@ -806,6 +819,10 @@
                         <th scope="row">error-percentage</th>\
                         <td class="visible-with-data" id="error-percentage">' + (feature.properties['error-percentage'] !== null ? autolinker.link(String(feature.properties['error-percentage']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
+                    <tr>\
+                        <th scope="row">Selisih</th>\
+                        <td class="visible-with-data" id="Selisih">' + (feature.properties['Selisih'] !== null ? autolinker.link(String(feature.properties['Selisih']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
 			layer.on('popupopen', function(e) {
@@ -814,128 +831,19 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_GEMWalkBetoyoKauman_5_0(feature) {
-            switch(String(feature.properties['Status'])) {
-                case 'Available':
-                    return {
+        function style_GEMWalkBetoyoKauman_5_0() {
+            return {
                 pane: 'pane_GEMWalkBetoyoKauman_5',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 1.0,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(255,255,255,1.0)',
+                fillColor: 'rgba(141,90,153,1.0)',
                 interactive: true,
-            }
-                    break;
-                case 'AVAILABLE':
-                    return {
-                pane: 'pane_GEMWalkBetoyoKauman_5',
-                opacity: 1,
-                color: 'rgba(0,0,0,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(255,255,255,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Sold':
-                    return {
-                pane: 'pane_GEMWalkBetoyoKauman_5',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(0,227,3,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'SOLD':
-                    return {
-                pane: 'pane_GEMWalkBetoyoKauman_5',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(0,227,3,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'FUTURE DEVELOP':
-                    return {
-                pane: 'pane_GEMWalkBetoyoKauman_5',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(255,255,255,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'HOLD':
-                    return {
-                pane: 'pane_GEMWalkBetoyoKauman_5',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(34,131,192,1.0)',
-                interactive: true,
-            }
-                    break;
-                default:
-                    return {
-                pane: 'pane_GEMWalkBetoyoKauman_5',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(255,245,240,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Anomaly':
-                    return {
-                pane: 'pane_GEMWalkBetoyoKauman_5',
-                opacity: 1,
-                color: 'rgba(82,82,82,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(247,247,247,1.0)',
-                interactive: true,
-            }
-                    break;
             }
         }
         map.createPane('pane_GEMWalkBetoyoKauman_5');
@@ -989,20 +897,12 @@
                         <td class="visible-with-data" id="PBB">' + (feature.properties['PBB'] !== null ? autolinker.link(String(feature.properties['PBB']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">tglbrakhir</th>\
-                        <td class="visible-with-data" id="tglbrakhir">' + (feature.properties['tglbrakhir'] !== null ? autolinker.link(String(feature.properties['tglbrakhir']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
                         <th scope="row">Pemilik</th>\
                         <td class="visible-with-data" id="Pemilik">' + (feature.properties['Pemilik'] !== null ? autolinker.link(String(feature.properties['Pemilik']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Keterangan</th>\
                         <td class="visible-with-data" id="Keterangan">' + (feature.properties['Keterangan'] !== null ? autolinker.link(String(feature.properties['Keterangan']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">error-percentage</th>\
-                        <td class="visible-with-data" id="error-percentage">' + (feature.properties['error-percentage'] !== null ? autolinker.link(String(feature.properties['error-percentage']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -1014,96 +914,6 @@
 
         function style_GEMWalkBetoyoGuci_6_0(feature) {
             switch(String(feature.properties['Status'])) {
-                case 'Available':
-                    return {
-                pane: 'pane_GEMWalkBetoyoGuci_6',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(255,255,255,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'AVAILABLE':
-                    return {
-                pane: 'pane_GEMWalkBetoyoGuci_6',
-                opacity: 1,
-                color: 'rgba(0,0,0,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(255,255,255,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Sold':
-                    return {
-                pane: 'pane_GEMWalkBetoyoGuci_6',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(0,227,3,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'SOLD':
-                    return {
-                pane: 'pane_GEMWalkBetoyoGuci_6',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(0,227,3,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'FUTURE DEVELOP':
-                    return {
-                pane: 'pane_GEMWalkBetoyoGuci_6',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(255,255,255,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'HOLD':
-                    return {
-                pane: 'pane_GEMWalkBetoyoGuci_6',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(34,131,192,1.0)',
-                interactive: true,
-            }
-                    break;
                 default:
                     return {
                 pane: 'pane_GEMWalkBetoyoGuci_6',
@@ -1112,10 +922,10 @@
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 1.0,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(255,158,23,1.0)',
+                fillColor: 'rgba(164,113,83,1.0)',
                 interactive: true,
             }
                     break;
@@ -1127,7 +937,7 @@
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 1.0,
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(247,247,247,1.0)',
@@ -1206,113 +1016,19 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_EastGateManyarsidorukun_7_0(feature) {
-            switch(String(feature.properties['Status'])) {
-                case 'Available':
-                    return {
+        function style_EastGateManyarsidorukun_7_0() {
+            return {
                 pane: 'pane_EastGateManyarsidorukun_7',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 1.0,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(255,255,255,1.0)',
+                fillColor: 'rgba(12,185,255,1.0)',
                 interactive: true,
-            }
-                    break;
-                case 'AVAILABLE':
-                    return {
-                pane: 'pane_EastGateManyarsidorukun_7',
-                opacity: 1,
-                color: 'rgba(0,0,0,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(255,255,255,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Sold':
-                    return {
-                pane: 'pane_EastGateManyarsidorukun_7',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(0,227,3,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'SOLD':
-                    return {
-                pane: 'pane_EastGateManyarsidorukun_7',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(0,227,3,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'FUTURE DEVELOP':
-                    return {
-                pane: 'pane_EastGateManyarsidorukun_7',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(255,255,255,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'HOLD':
-                    return {
-                pane: 'pane_EastGateManyarsidorukun_7',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(34,131,192,1.0)',
-                interactive: true,
-            }
-                    break;
-                default:
-                    return {
-                pane: 'pane_EastGateManyarsidorukun_7',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(252,233,149,1.0)',
-                interactive: true,
-            }
-                    break;
             }
         }
         map.createPane('pane_EastGateManyarsidorukun_7');
@@ -1385,113 +1101,19 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_WestGateBanyuwangi_8_0(feature) {
-            switch(String(feature.properties['Status'])) {
-                case 'Available':
-                    return {
+        function style_WestGateBanyuwangi_8_0() {
+            return {
                 pane: 'pane_WestGateBanyuwangi_8',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 1.0, 
+                weight: 1.0,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(255,255,255,1.0)',
+                fillColor: 'rgba(164,113,83,1.0)',
                 interactive: true,
-            }
-                    break;
-                case 'AVAILABLE':
-                    return {
-                pane: 'pane_WestGateBanyuwangi_8',
-                opacity: 1,
-                color: 'rgba(0,0,0,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(255,255,255,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'Sold':
-                    return {
-                pane: 'pane_WestGateBanyuwangi_8',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(0,227,3,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'SOLD':
-                    return {
-                pane: 'pane_WestGateBanyuwangi_8',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(0,227,3,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'FUTURE DEVELOP':
-                    return {
-                pane: 'pane_WestGateBanyuwangi_8',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(255,255,255,1.0)',
-                interactive: true,
-            }
-                    break;
-                case 'HOLD':
-                    return {
-                pane: 'pane_WestGateBanyuwangi_8',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(34,131,192,1.0)',
-                interactive: true,
-            }
-                    break;
-                default:
-                    return {
-                pane: 'pane_WestGateBanyuwangi_8',
-                opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(230,196,163,1.0)',
-                interactive: true,
-            }
-                    break;
             }
         }
         map.createPane('pane_WestGateBanyuwangi_8');
@@ -1510,168 +1132,55 @@
         map.addLayer(layer_WestGateBanyuwangi_8);
         var baseMaps = {};
         var overlaysTree = [
-            {label: '<input type="checkbox" checked="checked" id="layer_WestGateBanyuwangi_8_checkbox" />West Gate Banyuwangi', layer: layer_WestGateBanyuwangi_8},
-            {label: '<input type="checkbox" checked="checked" id="layer_EastGateManyarsidorukun_7_checkbox" />East Gate Manyarsidorukun', layer: layer_EastGateManyarsidorukun_7},
-            {label: '<input type="checkbox" checked="checked" id="layer_GEMWalkBetoyoGuci_6_checkbox" />GEM Walk Betoyo Guci', layer: layer_GEMWalkBetoyoGuci_6},
-            {label: '<input type="checkbox" checked="checked" id="layer_GEMWalkBetoyoKauman_5_checkbox" />GEM Walk Betoyo Kauman', layer: layer_GEMWalkBetoyoKauman_5},
-            {label: '<input type="checkbox" checked="checked" id="layer_Manyarejo_4_checkbox" />Manyarejo', layer: layer_Manyarejo_4},
-            {label: '<input type="checkbox" checked="checked" id="layer_Bedanten_3_checkbox" />Bedanten', layer: layer_Bedanten_3},
-            {label: '<input type="checkbox" checked="checked" id="layer_Kramat_2_checkbox" />Kramat', layer: layer_Kramat_2},
-            {label: '<input type="checkbox" checked="checked" id="layer_Karangrejo_1_checkbox" />Karangrejo', layer: layer_Karangrejo_1},
-            {label: "Google Satellite", layer: layer_GoogleSatellite_0},
+            {label: '<input type="checkbox" id="Karangrejo_1" checked> Karangrejo', layer: layer_Karangrejo_1},
+            {label: '<input type="checkbox" id="Kramat_2" checked> Kramat', layer: layer_Kramat_2},
+            {label: '<input type="checkbox" id="Bedanten_3" checked> Bedanten', layer: layer_Bedanten_3},
+            {label: '<input type="checkbox" id="Manyarejo_4" checked> Manyarejo', layer: layer_Manyarejo_4},
+            {label: '<input type="checkbox" id="GEMWalkBetoyoKauman_5" checked> GEMWalkBetoyoKauman', layer: layer_GEMWalkBetoyoKauman_5},
+            {label: '<input type="checkbox" id="GEMWalkBetoyoGuci_6" checked> GEMWalkBetoyoGuci', layer: layer_GEMWalkBetoyoGuci_6},
+            {label: '<input type="checkbox" id="EastGateManyarsidorukun_7" checked> EastGateManyarsidorukun', layer: layer_EastGateManyarsidorukun_7},
+            {label: '<input type="checkbox" id="WestGateBanyuwangi_8" checked> WestGateBanyuwangi', layer: layer_WestGateBanyuwangi_8},
+            {label: '<input type="checkbox" id="GoogleSatellite_0" checked> GoogleSatellite', layer: layer_GoogleSatellite_0},
         ];
-        var lay = L.control.layers.tree(baseMaps, overlaysTree,{
-            // TODO collapsed: true,
-            collapsed: true,
-        });
-        lay.addTo(map);
+        var overlays = {};
+        for (var i = 0; i < overlaysTree.length; i++) {
+            overlays[overlaysTree[i].label] = overlaysTree[i].layer;
+        }
+        L.control.layers.tree(baseMaps, overlaysTree).addTo(map);
         setBounds();
-        
-        var highlight_feature_click = null; // New global variable to store the clicked feature
-        var highlight_feature_search = null; // Retained for search functionality
-
-        function applyClickHighlight(layer) {
-            // Restore the previous click-highlighted feature's style
-            if (highlight_feature_click) {
-                highlight_feature_click.setStyle(highlight_feature_click.options.originalStyle);
-            }
-
-            // Save the original style of the new feature before highlighting it
-            layer.options.originalStyle = Object.assign({}, layer.options);
-            
-            // Apply the new red highlight
-            layer.setStyle({
-                stroke: 'red',
-                color: 'red',
-                weight: 3,
-            });
-            
-            // Set the new feature as the highlighted one
-            highlight_feature_click = layer;
+        var i = 0;
+        var s = document.getElementsByClassName('leaflet-control-layers-selector');
+        var l = document.getElementsByClassName('leaflet-control-layers-label');
+        for(i = 0; i < s.length; i++){
+          s[i].checked = true;
+          if(s[i].id === 'GoogleSatellite_0'){
+            s[i].parentNode.style.display = 'none';
+          }
+          if(s[i].id === 'Karangrejo_1'){
+            s[i].parentNode.style.display = 'none';
+          }
+          if(s[i].id === 'Kramat_2'){
+            s[i].parentNode.style.display = 'none';
+          }
+          if(s[i].id === 'Bedanten_3'){
+            s[i].parentNode.style.display = 'none';
+          }
+          if(s[i].id === 'Manyarejo_4'){
+            s[i].parentNode.style.display = 'none';
+          }
+          if(s[i].id === 'GEMWalkBetoyoKauman_5'){
+            s[i].parentNode.style.display = 'none';
+          }
+          if(s[i].id === 'GEMWalkBetoyoGuci_6'){
+            s[i].parentNode.style.display = 'none';
+          }
+          if(s[i].id === 'EastGateManyarsidorukun_7'){
+            s[i].parentNode.style.display = 'none';
+          }
+          if(s[i].id === 'WestGateBanyuwangi_8'){
+            s[i].parentNode.style.display = 'none';
+          }
         }
-
-        // Search bar functionality
-        var searchLayer = L.layerGroup([
-            layer_Karangrejo_1,
-            layer_Kramat_2,
-            layer_Bedanten_3,
-            layer_Manyarejo_4,
-            layer_GEMWalkBetoyoKauman_5,
-            layer_GEMWalkBetoyoGuci_6,
-            layer_EastGateManyarsidorukun_7,
-            layer_WestGateBanyuwangi_8,
-        ]);
-
-        var searchNIB = new L.Control.Search({
-            layer: searchLayer,
-            propertyName: 'NIB',
-            initial: false,
-            zoom: 22,
-            hideMarkerOnCollapse: true,
-            collapsed: true,
-            textPlaceholder: 'Search NIB...',
-            moveToLocation: function(latlng, title, map) {
-                map.setView(latlng, 22);
-            }
-        });
-        searchNIB.addTo(map);
-
-        var searchNamaUnit = new L.Control.Search({
-            layer: searchLayer,
-            propertyName: 'Nama_unit',
-            initial: false,
-            zoom: 22,
-            hideMarkerOnCollapse: true,
-            collapsed: true,
-            textPlaceholder: 'Search Nama_unit...',
-            moveToLocation: function(latlng, title, map) {
-                map.setView(latlng, 22);
-            }
-        });
-        searchNamaUnit.addTo(map);
-        
-        // Event listener for search location found
-        function onSearchLocationFound(e) {
-            if (e.layer._popup) {
-                e.layer.openPopup();
-            }
-            if (highlight_feature_search) {
-                // Restore the original style of the previous highlighted feature
-                highlight_feature_search.setStyle(highlight_feature_search.options.originalStyle);
-            }
-            
-            // Clear any click highlight
-            if (highlight_feature_click) {
-                highlight_feature_click.setStyle(highlight_feature_click.options.originalStyle);
-                highlight_feature_click = null;
-            }
-
-            // Save a copy of the original style of the new feature before highlighting it
-            e.layer.options.originalStyle = Object.assign({}, e.layer.options);
-
-            highlight_feature_search = e.layer;
-            e.layer.setStyle({
-                color: '#ffff00',
-                fillColor: '#ffff00',
-                dashArray: '',
-                fillOpacity: 1
-            });
-        }
-
-        // Event listener for search collapsed
-        function onSearchCollapsed(e) {
-            if (highlight_feature_search) {
-                // Restore the original style when the search is collapsed
-                highlight_feature_search.setStyle(highlight_feature_search.options.originalStyle);
-                highlight_feature_search = null;
-            }
-        }
-
-        searchNIB.on('search:locationfound', onSearchLocationFound);
-        searchNIB.on('search:collapsed', onSearchCollapsed);
-        searchNamaUnit.on('search:locationfound', onSearchLocationFound);
-        searchNamaUnit.on('search:collapsed', onSearchCollapsed);
-
-// Home button functionality
-var homeButton = L.control({position: 'topleft'});
-homeButton.onAdd = function(map) {
-    var div = L.DomUtil.create('div', 'leaflet-control leaflet-control-home');
-    
-    // The button now contains a <i> tag for the Font Awesome icon
-    div.innerHTML = '<button type="button" class="home-button" aria-label="Zoom to initial extent" style="width: 30px; height: 30px; border: none; background-color: white;">' +
-                    '<i class="fa fa-home"></i>' +
-                    '</button>';
-    
-    div.title = 'Zoom to initial extent';
-    L.DomEvent.on(div, 'click', function() {
-        map.fitBounds([[-7.110195190137186,112.54631640132943],[-7.019549845255293,112.66806813870836]]);
-    });
-    return div;
-};
-
-// This line adds the button to the map instance
-homeButton.addTo(map);
-
-        // New feature: Highlight on click
-        function setupClickHighlight(layer) {
-            layer.on('click', function(e) {
-                if (highlight_feature_search) {
-                    highlight_feature_search.setStyle(highlight_feature_search.options.originalStyle);
-                    highlight_feature_search = null;
-                }
-                applyClickHighlight(e.target);
-            });
-        }
-        
-        layer_Karangrejo_1.eachLayer(setupClickHighlight);
-        layer_Kramat_2.eachLayer(setupClickHighlight);
-        layer_Bedanten_3.eachLayer(setupClickHighlight);
-        layer_Manyarejo_4.eachLayer(setupClickHighlight);
-        layer_GEMWalkBetoyoKauman_5.eachLayer(setupClickHighlight);
-        layer_GEMWalkBetoyoGuci_6.eachLayer(setupClickHighlight);
-        layer_EastGateManyarsidorukun_7.eachLayer(setupClickHighlight);
-        layer_WestGateBanyuwangi_8.eachLayer(setupClickHighlight);
-
         </script>
     </body>
 </html>
