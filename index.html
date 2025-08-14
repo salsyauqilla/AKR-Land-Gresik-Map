@@ -17,6 +17,24 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@3.0.9/dist/leaflet-search.min.css">
 
         <style>
+			/* New CSS for the dropdown and slider container */
+#opacity-control-container {
+    position: absolute;
+    bottom: 20px;
+    left: 10px;
+    z-index: 1000;
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#layer-select, #opacity-slider {
+    width: 100%;
+}
         html, body, #map {
             width: 100%;
             height: 100%;
@@ -63,43 +81,21 @@
     </head>
     <body>
         <div id="map">
-<div id="sliders-container" style="position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 1000; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
-    <div style="margin-bottom: 5px;">
-        <label for="opacity-slider-Karangrejo" style="margin-right: 10px;">Karangrejo Opacity:</label>
-        <input type="range" id="opacity-slider-Karangrejo" min="0" max="1" step="0.1" value="1">
-    </div>
-    <div style="margin-bottom: 5px;">
-        <label for="opacity-slider-Kramat" style="margin-right: 10px;">Kramat Opacity:</label>
-        <input type="range" id="opacity-slider-Kramat" min="0" max="1" step="0.1" value="1">
-    </div>
-    <div style="margin-bottom: 5px;">
-        <label for="opacity-slider-Bedanten" style="margin-right: 10px;">Bedanten Opacity:</label>
-        <input type="range" id="opacity-slider-Bedanten" min="0" max="1" step="0.1" value="1">
-    </div>
-    <div style="margin-bottom: 5px;">
-        <label for="opacity-slider-Manyarejo" style="margin-right: 10px;">Manyarejo Opacity:</label>
-        <input type="range" id="opacity-slider-Manyarejo" min="0" max="1" step="0.1" value="1">
-    </div>
-    <div style="margin-bottom: 5px;">
-        <label for="opacity-slider-GEMWalkBetoyoKauman" style="margin-right: 10px;">GEMWalkBetoyoKauman Opacity:</label>
-        <input type="range" id="opacity-slider-GEMWalkBetoyoKauman" min="0" max="1" step="0.1" value="1">
-    </div>
-    <div style="margin-bottom: 5px;">
-        <label for="opacity-slider-GEMWalkBetoyoGuci" style="margin-right: 10px;">GEMWalkBetoyoGuci Opacity:</label>
-        <input type="range" id="opacity-slider-GEMWalkBetoyoGuci" min="0" max="1" step="0.1" value="1">
-    </div>
-    <div style="margin-bottom: 5px;">
-        <label for="opacity-slider-EastGateManyarsidorukun" style="margin-right: 10px;">EastGateManyarsidorukun Opacity:</label>
-        <input type="range" id="opacity-slider-EastGateManyarsidorukun" min="0" max="1" step="0.1" value="1">
-    </div>
-    <div style="margin-bottom: 5px;">
-        <label for="opacity-slider-WestGateBanyuwangi" style="margin-right: 10px;">WestGateBanyuwangi Opacity:</label>
-        <input type="range" id="opacity-slider-WestGateBanyuwangi" min="0" max="1" step="0.1" value="1">
-    </div>
-    <div>
-        <label for="opacity-slider-GoogleSatellite" style="margin-right: 10px;">GoogleSatellite Opacity:</label>
-        <input type="range" id="opacity-slider-GoogleSatellite" min="0" max="1" step="0.1" value="1">
-    </div>
+<div id="opacity-control-container">
+    <label for="layer-select">Select Layer:</label>
+    <select id="layer-select">
+        <option value="layer_GoogleSatellite_0">Google Satellite</option>
+        <option value="layer_Karangrejo_1">Karangrejo</option>
+        <option value="layer_Kramat_2">Kramat</option>
+        <option value="layer_Bedanten_3">Bedanten</option>
+        <option value="layer_Manyarejo_4">Manyarejo</option>
+        <option value="layer_GEMWalkBetoyoKauman_5">GEMWalkBetoyoKauman</option>
+        <option value="layer_GEMWalkBetoyoGuci_6">GEMWalkBetoyoGuci</option>
+        <option value="layer_EastGateManyarsidorukun_7">EastGateManyarsidorukun</option>
+        <option value="layer_WestGateBanyuwangi_8">WestGateBanyuwangi</option>
+    </select>
+    <label for="opacity-slider">Opacity:</label>
+    <input type="range" id="opacity-slider" min="0" max="1" step="0.1" value="1">
 </div>
         <script src="js/qgis2web_expressions.js"></script>
         <script src="js/leaflet.js"></script>
@@ -126,84 +122,83 @@
         <script src="https://cdn.jsdelivr.net/npm/leaflet-search@3.0.9/dist/leaflet-search.min.js"></script>
 
         <script>
-// Add this code after all the layer variables are defined
+// New JavaScript logic for the dropdown and single slider
+var layerSelect = document.getElementById('layer-select');
+var opacitySlider = document.getElementById('opacity-slider');
+var currentLayer = layer_GoogleSatellite_0; // Set initial layer
 
-// Karangrejo slider
-var karangrejoSlider = document.getElementById('opacity-slider-Karangrejo');
-karangrejoSlider.addEventListener('input', function() {
-    layer_Karangrejo_1.setStyle({
-        fillOpacity: this.value,
-        opacity: this.value
-    });
+// Event listener for the dropdown menu
+layerSelect.addEventListener('change', function() {
+    var selectedLayerId = this.value;
+    var opacityValue;
+
+    // Get the selected layer object and its current opacity
+    switch(selectedLayerId) {
+        case 'layer_GoogleSatellite_0':
+            currentLayer = layer_GoogleSatellite_0;
+            opacityValue = currentLayer.options.opacity;
+            break;
+        case 'layer_Karangrejo_1':
+            currentLayer = layer_Karangrejo_1;
+            // For geoJson layers, get opacity from the style properties
+            var style = currentLayer.options.style();
+            opacityValue = style.fillOpacity;
+            break;
+        case 'layer_Kramat_2':
+            currentLayer = layer_Kramat_2;
+            var style = currentLayer.options.style();
+            opacityValue = style.fillOpacity;
+            break;
+        case 'layer_Bedanten_3':
+            currentLayer = layer_Bedanten_3;
+            var style = currentLayer.options.style();
+            opacityValue = style.fillOpacity;
+            break;
+        case 'layer_Manyarejo_4':
+            currentLayer = layer_Manyarejo_4;
+            var style = currentLayer.options.style();
+            opacityValue = style.fillOpacity;
+            break;
+        case 'layer_GEMWalkBetoyoKauman_5':
+            currentLayer = layer_GEMWalkBetoyoKauman_5;
+            var style = currentLayer.options.style();
+            opacityValue = style.fillOpacity;
+            break;
+        case 'layer_GEMWalkBetoyoGuci_6':
+            currentLayer = layer_GEMWalkBetoyoGuci_6;
+            var style = currentLayer.options.style();
+            opacityValue = style.fillOpacity;
+            break;
+        case 'layer_EastGateManyarsidorukun_7':
+            currentLayer = layer_EastGateManyarsidorukun_7;
+            var style = currentLayer.options.style();
+            opacityValue = style.fillOpacity;
+            break;
+        case 'layer_WestGateBanyuwangi_8':
+            currentLayer = layer_WestGateBanyuwangi_8;
+            var style = currentLayer.options.style();
+            opacityValue = style.fillOpacity;
+            break;
+        default:
+            // Fallback to the first layer
+            currentLayer = layer_GoogleSatellite_0;
+            opacityValue = currentLayer.options.opacity;
+    }
+    // Update the slider to reflect the new layer's current opacity
+    opacitySlider.value = opacityValue;
 });
 
-// Kramat slider
-var kramatSlider = document.getElementById('opacity-slider-Kramat');
-kramatSlider.addEventListener('input', function() {
-    layer_Kramat_2.setStyle({
-        fillOpacity: this.value,
-        opacity: this.value
-    });
-});
+// Event listener for the single opacity slider
+opacitySlider.addEventListener('input', function() {
+    var opacityValue = this.value;
 
-// Bedanten slider
-var bedantenSlider = document.getElementById('opacity-slider-Bedanten');
-bedantenSlider.addEventListener('input', function() {
-    layer_Bedanten_3.setStyle({
-        fillOpacity: this.value,
-        opacity: this.value
-    });
-});
-
-// Manyarejo slider
-var manyarejoSlider = document.getElementById('opacity-slider-Manyarejo');
-manyarejoSlider.addEventListener('input', function() {
-    layer_Manyarejo_4.setStyle({
-        fillOpacity: this.value,
-        opacity: this.value
-    });
-});
-
-// GEMWalkBetoyoKauman slider
-var gemWalkBetoyoKaumanSlider = document.getElementById('opacity-slider-GEMWalkBetoyoKauman');
-gemWalkBetoyoKaumanSlider.addEventListener('input', function() {
-    layer_GEMWalkBetoyoKauman_5.setStyle({
-        fillOpacity: this.value,
-        opacity: this.value
-    });
-});
-
-// GEMWalkBetoyoGuci slider
-var gemWalkBetoyoGuciSlider = document.getElementById('opacity-slider-GEMWalkBetoyoGuci');
-gemWalkBetoyoGuciSlider.addEventListener('input', function() {
-    layer_GEMWalkBetoyoGuci_6.setStyle({
-        fillOpacity: this.value,
-        opacity: this.value
-    });
-});
-
-// EastGateManyarsidorukun slider
-var eastGateManyarsidorukunSlider = document.getElementById('opacity-slider-EastGateManyarsidorukun');
-eastGateManyarsidorukunSlider.addEventListener('input', function() {
-    layer_EastGateManyarsidorukun_7.setStyle({
-        fillOpacity: this.value,
-        opacity: this.value
-    });
-});
-
-// WestGateBanyuwangi slider
-var westGateBanyuwangiSlider = document.getElementById('opacity-slider-WestGateBanyuwangi');
-westGateBanyuwangiSlider.addEventListener('input', function() {
-    layer_WestGateBanyuwangi_8.setStyle({
-        fillOpacity: this.value,
-        opacity: this.value
-    });
-});
-
-// GoogleSatellite slider
-var googleSatelliteSlider = document.getElementById('opacity-slider-GoogleSatellite');
-googleSatelliteSlider.addEventListener('input', function() {
-    layer_GoogleSatellite_0.setOpacity(this.value);
+    // Check if the current layer is the basemap (L.tileLayer)
+    if (currentLayer.setOpacity) {
+        currentLayer.setOpacity(opacityValue);
+    } else {
+        // Otherwise, it's a vector layer (L.geoJson)
+        currentLayer.setStyle({ fillOpacity: opacityValue, opacity: opacityValue });
+    }
 });
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
