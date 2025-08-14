@@ -126,54 +126,78 @@
         <script src="https://cdn.jsdelivr.net/npm/leaflet-search@3.0.9/dist/leaflet-search.min.js"></script>
 
         <script>
-			// Add this code after all the layer variables are defined
+// Add this code after all the layer variables are defined
 
 // Karangrejo slider
 var karangrejoSlider = document.getElementById('opacity-slider-Karangrejo');
 karangrejoSlider.addEventListener('input', function() {
-    layer_Karangrejo_1.setOpacity(this.value);
+    layer_Karangrejo_1.setStyle({
+        fillOpacity: this.value,
+        opacity: this.value
+    });
 });
 
 // Kramat slider
 var kramatSlider = document.getElementById('opacity-slider-Kramat');
 kramatSlider.addEventListener('input', function() {
-    layer_Kramat_2.setOpacity(this.value);
+    layer_Kramat_2.setStyle({
+        fillOpacity: this.value,
+        opacity: this.value
+    });
 });
 
 // Bedanten slider
 var bedantenSlider = document.getElementById('opacity-slider-Bedanten');
 bedantenSlider.addEventListener('input', function() {
-    layer_Bedanten_3.setOpacity(this.value);
+    layer_Bedanten_3.setStyle({
+        fillOpacity: this.value,
+        opacity: this.value
+    });
 });
 
 // Manyarejo slider
 var manyarejoSlider = document.getElementById('opacity-slider-Manyarejo');
 manyarejoSlider.addEventListener('input', function() {
-    layer_Manyarejo_4.setOpacity(this.value);
+    layer_Manyarejo_4.setStyle({
+        fillOpacity: this.value,
+        opacity: this.value
+    });
 });
 
 // GEMWalkBetoyoKauman slider
 var gemWalkBetoyoKaumanSlider = document.getElementById('opacity-slider-GEMWalkBetoyoKauman');
 gemWalkBetoyoKaumanSlider.addEventListener('input', function() {
-    layer_GEMWalkBetoyoKauman_5.setOpacity(this.value);
+    layer_GEMWalkBetoyoKauman_5.setStyle({
+        fillOpacity: this.value,
+        opacity: this.value
+    });
 });
 
 // GEMWalkBetoyoGuci slider
 var gemWalkBetoyoGuciSlider = document.getElementById('opacity-slider-GEMWalkBetoyoGuci');
 gemWalkBetoyoGuciSlider.addEventListener('input', function() {
-    layer_GEMWalkBetoyoGuci_6.setOpacity(this.value);
+    layer_GEMWalkBetoyoGuci_6.setStyle({
+        fillOpacity: this.value,
+        opacity: this.value
+    });
 });
 
 // EastGateManyarsidorukun slider
 var eastGateManyarsidorukunSlider = document.getElementById('opacity-slider-EastGateManyarsidorukun');
 eastGateManyarsidorukunSlider.addEventListener('input', function() {
-    layer_EastGateManyarsidorukun_7.setOpacity(this.value);
+    layer_EastGateManyarsidorukun_7.setStyle({
+        fillOpacity: this.value,
+        opacity: this.value
+    });
 });
 
 // WestGateBanyuwangi slider
 var westGateBanyuwangiSlider = document.getElementById('opacity-slider-WestGateBanyuwangi');
 westGateBanyuwangiSlider.addEventListener('input', function() {
-    layer_WestGateBanyuwangi_8.setOpacity(this.value);
+    layer_WestGateBanyuwangi_8.setStyle({
+        fillOpacity: this.value,
+        opacity: this.value
+    });
 });
 
 // GoogleSatellite slider
