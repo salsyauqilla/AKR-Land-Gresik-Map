@@ -127,31 +127,6 @@
         <script src="https://cdn.jsdelivr.net/npm/leaflet-search@3.0.9/dist/leaflet-search.min.js"></script>
 
         <script>
-// A variable to hold the marker, declared outside the function
-// so it can be accessed and removed later.
-var currentMarker = null;
-
-// Get a reference to the coordinate display element
-var coordinateDisplay = document.getElementById('coordinate-display');
-
-// Listen for a click on the map
-map.on('click', function(e) {
-    // Remove the previous marker if it exists
-    if (currentMarker) {
-        map.removeLayer(currentMarker);
-    }
-
-    // Add a new marker at the clicked location
-    currentMarker = L.marker(e.latlng).addTo(map);
-
-    // Get the latitude and longitude from the click event
-    var lat = e.latlng.lat.toFixed(5);
-    var lng = e.latlng.lng.toFixed(5);
-
-    // Update the HTML content of the display box
-    coordinateDisplay.innerHTML = "Coordinates: " + lat + ", " + lng;
-});
-			
 // New JavaScript logic for the dropdown and single slider
 var layerSelect = document.getElementById('layer-select');
 var opacitySlider = document.getElementById('opacity-slider');
@@ -1815,11 +1790,30 @@ homeButton.addTo(map);
 
     var coordinateDisplay = document.getElementById('coordinate-display');
 
-    map.on('click', function(e) {
-        var lat = e.latlng.lat.toFixed(5);
-        var lng = e.latlng.lng.toFixed(5);
-        coordinateDisplay.innerHTML = "Coordinates: " + lat + ", " + lng;
-    });
+// A variable to hold the marker, declared outside the function
+// so it can be accessed and removed later.
+var currentMarker = null;
+
+// Get a reference to the coordinate display element
+var coordinateDisplay = document.getElementById('coordinate-display');
+
+// Listen for a click on the map
+map.on('click', function(e) {
+    // Remove the previous marker if it exists
+    if (currentMarker) {
+        map.removeLayer(currentMarker);
+    }
+
+    // Add a new marker at the clicked location
+    currentMarker = L.marker(e.latlng).addTo(map);
+
+    // Get the latitude and longitude from the click event
+    var lat = e.latlng.lat.toFixed(5);
+    var lng = e.latlng.lng.toFixed(5);
+
+    // Update the HTML content of the display box
+    coordinateDisplay.innerHTML = "Coordinates: " + lat + ", " + lng;
+});
 
     // Existing scale bar or other scripts
     L.control.scale({position: 'bottomright'}).addTo(map);
