@@ -1788,34 +1788,49 @@ homeButton.addTo(map);
         layer_EastGateManyarsidorukun_7.eachLayer(setupClickHighlight);
         layer_WestGateBanyuwangi_8.eachLayer(setupClickHighlight);
 
+// The following code is for your custom coordinate display and marker.
+    // Place your HTML <div> for coordinate-display at the top of the body.
+    
+    // A variable to hold the marker, declared outside the function
+    // so it can be accessed and removed later.
+    var currentMarker = null;
+
+    // Get a reference to the coordinate display element
     var coordinateDisplay = document.getElementById('coordinate-display');
 
-// A variable to hold the marker, declared outside the function
-// so it can be accessed and removed later.
-var currentMarker = null;
+    // Listen for a click on the map
+    map.on('click', function(e) {
+        // If there's an existing marker, remove it
+        if (currentMarker) {
+            map.removeLayer(currentMarker);
+        }
 
-// Get a reference to the coordinate display element
-var coordinateDisplay = document.getElementById('coordinate-display');
+        // Add a new marker at the clicked location
+        currentMarker = L.marker(e.latlng).addTo(map);
 
-// Listen for a click on the map
-map.on('click', function(e) {
-    // Remove the previous marker if it exists
-    if (currentMarker) {
-        map.removeLayer(currentMarker);
-    }
+        // Get the latitude and longitude from the click event
+        var lat = e.latlng.lat.toFixed(5);
+        var lng = e.latlng.lng.toFixed(5);
 
-    // Add a new marker at the clicked location
-    currentMarker = L.marker(e.latlng).addTo(map);
+        // Update the HTML content of the display box
+        coordinateDisplay.innerHTML = "Coordinates: " + lat + ", " + lng;
 
-    // Get the latitude and longitude from the click event
-    var lat = e.latlng.lat.toFixed(5);
-    var lng = e.latlng.lng.toFixed(5);
+        // The following lines are from the original QGIS2Web script to ensure popups still work.
+        // It checks if the click was on a feature and opens the popup.
+        var feature = L.A.getFeatureAt(e.latlng, map);
+        if (feature) {
+            var popupContent = '<b>' + feature.properties['Nama_unit'] + '</b><br>' +
+                               'No_SHGB: ' + feature.properties['No_SHGB'] + '<br>' +
+                               'Luas: ' + feature.properties['Luas'] + ' m²<br>' +
+                               'NIB: ' + feature.properties['NIB'];
+            L.popup()
+                .setLatLng(e.latlng)
+                .setContent(popupContent)
+                .openOn(map);
+        }
+    });
 
-    // Update the HTML content of the display box
-    coordinateDisplay.innerHTML = "Coordinates: " + lat + ", " + lng;
-});
-
-    // Existing scale bar or other scripts
+    // Add the scale bar to the bottom-right corner
     L.control.scale({position: 'bottomright'}).addTo(map);
 
         </script>
