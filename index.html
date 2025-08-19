@@ -1783,31 +1783,6 @@ homeButton.addTo(map);
         layer_EastGateManyarsidorukun_7.eachLayer(setupClickHighlight);
         layer_WestGateBanyuwangi_8.eachLayer(setupClickHighlight);
 
-    // Create a simple popup to display coordinates
-    var popup = L.popup();
-
-    // Get a reference to the map's HTML element
-    var mapContainer = document.getElementById('map');
-
-    // Add a click listener to the map's container
-    mapContainer.addEventListener('click', function(event) {
-        // Get the pixel coordinates of the click
-        var pixelPoint = L.point(event.clientX, event.clientY);
-        
-        // Convert the pixel coordinates to map coordinates (latitude, longitude)
-        var latlng = map.containerPointToLatLng(pixelPoint);
-
-        // Round the coordinates for a cleaner look
-        var lat = latlng.lat.toFixed(5);
-        var lng = latlng.lng.toFixed(5);
-
-        // Set the popup's content and open it on the map
-        popup
-            .setLatLng(latlng)
-            .setContent("Coordinates: " + lat + ", " + lng)
-            .openOn(map);
-    });
-			
 	// Add the scale bar here
     L.control.scale({position: 'bottomright'}).addTo(map);
 
