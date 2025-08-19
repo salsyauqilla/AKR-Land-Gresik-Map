@@ -200,6 +200,11 @@ opacitySlider.addEventListener('input', function() {
         currentLayer.setStyle({ fillOpacity: opacityValue, opacity: opacityValue });
     }
 });
+    // Your existing custom code for search bars, opacity, etc.
+
+    // Add the scale bar here
+    L.control.scale({position: 'bottomright'}).addTo(map);
+
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
         }).fitBounds([[-7.110195190137186,112.54631640132943],[-7.019549845255293,112.66806813870836]]);
