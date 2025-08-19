@@ -80,6 +80,11 @@
         <title></title>
     </head>
     <body>
+		
+<div id="coordinate-display" style="position: absolute; bottom: 0; left: 0; padding: 10px; background-color: white; border-top: 1px solid #ccc; z-index: 1000;">
+    Click on the map to get coordinates
+</div>
+		
         <div id="map">
 <div id="opacity-control-container">
     <label for="layer-select">Select Layer:</label>
@@ -1783,8 +1788,21 @@ homeButton.addTo(map);
         layer_EastGateManyarsidorukun_7.eachLayer(setupClickHighlight);
         layer_WestGateBanyuwangi_8.eachLayer(setupClickHighlight);
 
-	// Add the scale bar here
-    L.control.scale({position: 'bottomright'}).addTo(map);
+  // Get a reference to the new coordinate display element
+    var coordinateDisplay = document.getElementById('coordinate-display');
+
+    // Listen for a click on the map
+    map.on('click', function(e) {
+        // Get the latitude and longitude from the click event
+        var lat = e.latlng.lat.toFixed(5);
+        var lng = e.latlng.lng.toFixed(5);
+
+        // Update the HTML content of the display box
+        coordinateDisplay.innerHTML = "Coordinates: " + lat + ", " + lng;
+    });
+
+    // Existing scale bar or other scripts
+    L.control.scale({position: 'bottomleft'}).addTo(map);
 
         </script>
     </body>
