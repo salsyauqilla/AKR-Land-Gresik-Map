@@ -17,6 +17,23 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@3.0.9/dist/leaflet-search.min.css">
 
         <style>
+.info.legend {
+    background: white;
+    padding: 6px;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    font-family: Arial, sans-serif;
+    line-height: 18px;
+    color: #555;
+    bottom: 20px;
+}
+.info.legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
+}
 			/* New CSS for the dropdown and slider container */
 #opacity-control-container {
     position: absolute;
@@ -127,6 +144,41 @@
         <script src="https://cdn.jsdelivr.net/npm/leaflet-search@3.0.9/dist/leaflet-search.min.js"></script>
 
         <script>
+// Function to create a legend from an array of layers and colors
+function createLegend(layersAndColors) {
+    var legend = L.control({position: 'bottomleft'});
+    
+    legend.onAdd = function (map) {
+        var div = L.DomUtil.create('div', 'info legend');
+        var html = '';
+
+        for (var i = 0; i < layersAndColors.length; i++) {
+            var item = layersAndColors[i];
+            html += '<i style="background:' + item.color + '"></i> ' + item.name + '<br>';
+        }
+        div.innerHTML = html;
+        return div;
+    };
+    legend.addTo(map);
+}
+
+// Define your layers and their colors here
+var myLayers = [
+    {name: 'Karangrejo', color: 'rgba(213,180,60,1.0)'},
+    {name: 'Kramat', color: 'rgba(145,82,45,1.0)'},
+	{name: 'Bedanten', color: 'rgba(127,64,203,1.0)'},
+	{name: 'Manyarejo', color: 'rgba(100,93,94,1.0)'},
+	{name: 'GEMWalkBetoyoKauman', color: 'rgba(255,245,240,1.0)'},
+	{name: 'GEMWalkBetoyoGuci', color: 'rgba(255,158,23,1.0)'},
+	{name: 'EastGateManyarsidorukun', color: 'rgba(252,233,149,1.0)'},
+	{name: 'WestGateBanyuwangi', color: 'rgba(230,196,163,1.0)'},
+    // Add other layers here following the same format
+    // {name: 'Your Layer Name', color: 'Your rgba color'},
+];
+
+// Call the function to add the legend to the map
+createLegend(myLayers);
+			
 // New JavaScript logic for the dropdown and single slider
 var layerSelect = document.getElementById('layer-select');
 var opacitySlider = document.getElementById('opacity-slider');
