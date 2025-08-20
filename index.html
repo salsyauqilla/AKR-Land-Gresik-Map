@@ -80,9 +80,6 @@
         <title></title>
     </head>
     <body>
-<div id="legend" style="position: absolute; bottom: 20px; right: 10px; z-index: 1000; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
-    <h4>Map Legend</h4>
-    <div id="legend-content"></div>
 		
 <div id="coordinate-display" style="position: absolute; top: 10px; left: 50%; transform: translateX(-50%); padding: 10px; background-color: white; border: 1px solid #ccc; z-index: 1000; border-radius: 5px;">
     Click on the map to get coordinates
@@ -1821,34 +1818,6 @@ map.on('click', function(e) {
     // Existing scale bar or other scripts
     L.control.scale({position: 'bottomright'}).addTo(map);
 
-var baseMaps = {};
-var overlaysTree = {
-	// This is your custom, manual legend script.
-// It will not be affected by QGIS exports.
-
-// Get a reference to the legend content div
-var legendContent = document.getElementById('legend-content');
-
-// Define your layers and their colors here.
-// You must find the 'fillColor' for each layer from its style function.
-var myLayers = [
-	{name: 'Karangrejo', color: 'rgba(213,180,60,1.0)'},
-    {name: 'Kramat', color: 'rgba(145,82,45,1.0)'},
-    {name: 'Bedanten', color: 'rgba(127,64,203,1.0)'},
-    {name: 'Manyarejo', color: 'rgba(100,93,94,1.0)'},
-    {name: 'GEMWalkBetoyoKauman', color: 'rgba(255,245,240,1.0)'},
-    {name: 'GEMWalkBetoyoGuci', color: 'rgba(255,158,23,1.0)'},
-    {name: 'EastGateManyarsidorukun', color: 'rgba(252,233,149,1.0)'},
-    {name: 'WestGateBanyuwangi', color: 'rgba(230,196,163,1.0)'}
-];
-
-// Loop through the layers and create the legend items
-myLayers.forEach(function(item) {
-    var div = document.createElement('div');
-    div.innerHTML = '<span style="background-color:' + item.color + '; width: 20px; height: 20px; display: inline-block; margin-right: 5px; border: 1px solid #ccc;"></span>' + item.name;
-    legendContent.appendChild(div);
-});
- 
         </script>
     </body>
 </html>
