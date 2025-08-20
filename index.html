@@ -85,9 +85,12 @@
     Click on the map to get coordinates
 </div>	
         <div id="map">
-	<div id="legend" style="position: absolute; top: 10px; right: 10px; z-index: 1000; background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 15px rgba(0,0,0,0.2);">
-    <h4>Map Legend</h4>
-    <div id="legend-content"></div>
+<div id="legend-container" style="position: absolute; top: 10px; right: 10px; z-index: 1000;">
+    <button id="legend-toggle" style="background: white; border: 1px solid #ccc; padding: 5px 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">Legend</button>
+    <div id="legend" style="background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 15px rgba(0,0,0,0.2); margin-top: 5px; display: none;">
+        <h4>Map Legend</h4>
+        <div id="legend-content"></div>
+    </div>
 </div>
 
 <div id="opacity-control-container">
@@ -1822,6 +1825,21 @@ map.on('click', function(e) {
     // Existing scale bar or other scripts
     L.control.scale({position: 'bottomright'}).addTo(map);
 			// --- Legend Script ---
+// Get references to the button and the legend div
+var legendToggle = document.getElementById('legend-toggle');
+var legendDiv = document.getElementById('legend');
+
+// Add a click listener to the button
+legendToggle.addEventListener('click', function() {
+    // Check if the legend is currently visible or hidden
+    if (legendDiv.style.display === 'none') {
+        // If it's hidden, show it
+        legendDiv.style.display = 'block';
+    } else {
+        // If it's visible, hide it
+        legendDiv.style.display = 'none';
+    }
+});
 var legendContent = document.getElementById('legend-content');
 
 var myLayers = [
