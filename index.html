@@ -1689,12 +1689,12 @@ opacitySlider.addEventListener('input', function() {
             layer: searchLayer,
             propertyName: 'Pemilik',
             initial: false,
-            zoom: 14,
+            zoom: 18,
             hideMarkerOnCollapse: true,
             collapsed: true,
             textPlaceholder: 'Search Pemilik...',
             moveToLocation: function(latlng, title, map) {
-                map.setView(latlng, 14);
+                map.setView(latlng, 18);
             }
         });
         searchPemilik.addTo(map);
