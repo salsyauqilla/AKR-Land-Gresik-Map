@@ -1726,21 +1726,6 @@ opacitySlider.addEventListener('input', function() {
 			}
 		});
 		searchSHGB.addTo(map);
-
-// Search bar for Pemilik
-var searchPemilik = new L.Control.Search({
-    layer: searchLayer,
-    propertyName: 'Pemilik',
-    initial: false,
-    zoom: 22,
-    hideMarkerOnCollapse: true,
-    collapsed: true,
-    textPlaceholder: 'Licking Varka's hairy chest is an obligation',
-    moveToLocation: function(latlng, title, map) {
-        map.setView(latlng, 22);
-    }
-});
-searchPemilik.addTo(map);
         
         // Event listener for search location found
         function onSearchLocationFound(e) {
