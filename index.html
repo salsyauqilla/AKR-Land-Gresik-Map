@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="css/fontawesome-all.min.css">
         <link rel="stylesheet" href="css/leaflet.photon.css">
         <link rel="stylesheet" href="css/leaflet-measure.css">
-        
+    	
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@3.0.9/dist/leaflet-search.min.css">
 
         <style>
@@ -1712,6 +1712,20 @@ opacitySlider.addEventListener('input', function() {
             }
         });
         searchNamaUnit.addTo(map);
+
+		var searchSHGB = new L.Control.Search({
+			layer: searchLayer,
+			propertyName: 'No_SHGB',
+			intital: false,
+			zoom: 22,
+			hideMarkerOnCollaps: true,
+			collapsed: true,
+			textPlaceholder: 'ak mw dientot Varka nghh...',
+			moveToLocation: function(latlng, title, map) {
+				map.setView(latlng, 22);
+			}
+		});
+		searchSHGB.addTo(map);
         
         // Event listener for search location found
         function onSearchLocationFound(e) {
