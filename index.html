@@ -1687,7 +1687,7 @@ opacitySlider.addEventListener('input', function() {
 
         var searchNIB = new L.Control.Search({
             layer: searchLayer,
-            propertyName: 'NIB', 'Pemilik',
+            propertyName: 'NIB',
             initial: false,
             zoom: 22,
             hideMarkerOnCollapse: true,
@@ -1715,7 +1715,7 @@ opacitySlider.addEventListener('input', function() {
 
 		var searchSHGB = new L.Control.Search({
 			layer: searchLayer,
-			propertyName: 'No_SHGB',
+			propertyName: ['Pemilik', 'No_SHGB']
 			intital: false,
 			zoom: 22,
 			hideMarkerOnCollaps: true,
