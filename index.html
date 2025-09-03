@@ -140,22 +140,22 @@ var toggleButton = document.getElementById('search-toggle-button');
 var searchControls = [searchNIB, searchNamaUnit, searchSHGB];
 
 toggleButton.addEventListener('click', function() {
-	// Toggle the collapsed state for all search bars
-	searchControls.forEach(fuction(control) {
-		if (control.option.collapsed) {
-			control.expand();
-		} else {
-			control.collapse();
-		}
-	});
+    // Toggle the collapsed state for all search bars
+    searchControls.forEach(function(control) {
+        if (control.options.collapsed) {
+            control.expand();
+        } else {
+            control.collapse();
+        }
+    });
 });
 
 // To ensure they are hidden at the start, make sure all your search bar scripts have 'collapsed: true'
-// For example :
+// For example:
 // var searchNIB = new L.Control.Search({
-//	...
-// 	collapsed: true, // Make sure this is set to true
-//	...
+//     ...
+//     collapsed: true, // Make sure this is set to true
+//     ...
 // });
 			
 // New JavaScript logic for the dropdown and single slider
