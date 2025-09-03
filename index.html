@@ -1715,7 +1715,7 @@ opacitySlider.addEventListener('input', function() {
 
 		var searchSHGB = new L.Control.Search({
 			layer: searchLayer,
-			propertyName: ['Pemilik', 'No_SHGB'],
+			propertyName: 'No_SHGB',
 			intital: false,
 			zoom: 22,
 			hideMarkerOnCollaps: true,
@@ -1726,6 +1726,20 @@ opacitySlider.addEventListener('input', function() {
 			}
 		});
 		searchSHGB.addTo(map);
+
+		var searchPemilik = new L.Control.Search({
+			layer: searchLayer,
+			propertyName: 'Pemilik'
+			initial: false,
+			zoom: 22,
+			hideMarkerOnCollaps: true,
+			collapsed: true,
+			textPlaceholder: 'Licking Varka's hairy chest',
+			moveToLocation: function(latlng, title, map) {
+				map.setView(latlng, 22);
+			}
+		});
+		searchPemilik.addTo(map);
         
         // Event listener for search location found
         function onSearchLocationFound(e) {
