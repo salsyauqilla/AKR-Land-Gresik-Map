@@ -85,7 +85,8 @@
     Click on the map to get coordinates
 </div>	
         <div id="map">
-<div id="legend-container" style="position: absolute; bottom: 50px; right: 10px; z-index: 1000;">
+	<button id="search-toggle-button" style="position: absolute; top: 10px; right: 10px; z-index: 1000; background: white; border: 1px solid #ccc; padding: 5px 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">Toggle Search</button>
+	<div id="legend-container" style="position: absolute; bottom: 50px; right: 10px; z-index: 1000;">
     <button id="legend-toggle" style="background: white; border: 1px solid #ccc; padding: 5px 10px; border-radius: 5px; box-shadow: 0 0 10px rgba(0,0,0,0.2);">Legenda</button>
     <div id="legend" style="background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 15px rgba(0,0,0,0.2); margin-top: 5px; display: none;">
         <h4>Map Legend</h4>
@@ -134,6 +135,29 @@
         <script src="https://cdn.jsdelivr.net/npm/leaflet-search@3.0.9/dist/leaflet-search.min.js"></script>
 
         <script>
+// Get a reference to the new button and your search bars
+var toggleButton = document.getElementById('search-toggle-button');
+var searchControls = [searchNIB, searchNamaUnit, searchSHGB];
+
+toggleButton.addEventListener('click', function() {
+	// Toggle the collapsed state for all search bars
+	searchControls.forEach(fuction(control) {
+		if (control.option.collapsed) {
+			control.expand();
+		} else {
+			control.collapse();
+		}
+	});
+});
+
+// To ensure they are hidden at the start, make sure all your search bar scripts have 'collapsed: true'
+// For example :
+// var searchNIB = new L.Control.Search({
+//	...
+// 	collapsed: true, // Make sure this is set to true
+//	...
+// });
+			
 // New JavaScript logic for the dropdown and single slider
 var layerSelect = document.getElementById('layer-select');
 var opacitySlider = document.getElementById('opacity-slider');
