@@ -1685,19 +1685,19 @@ opacitySlider.addEventListener('input', function() {
             layer_WestGateBanyuwangi_8,
         ]);
 
-        var searchPemilik = new L.Control.Search({
+        var searchNIB = new L.Control.Search({
             layer: searchLayer,
-            propertyName: 'Pemilik',
+            propertyName: 'NIB',
             initial: false,
-            zoom: 18,
+            zoom: 22,
             hideMarkerOnCollapse: true,
             collapsed: true,
-            textPlaceholder: 'Search Pemilik...',
+            textPlaceholder: 'Search NIB...',
             moveToLocation: function(latlng, title, map) {
-                map.setView(latlng, 18);
+                map.setView(latlng, 22);
             }
         });
-        searchPemilik.addTo(map);
+        searchNIB.addTo(map);
 
         var searchNamaUnit = new L.Control.Search({
             layer: searchLayer,
@@ -1717,12 +1717,12 @@ opacitySlider.addEventListener('input', function() {
 			layer: searchLayer,
 			propertyName: 'No_SHGB',
 			intital: false,
-			zoom: 18,
+			zoom: 22,
 			hideMarkerOnCollaps: true,
 			collapsed: true,
-			textPlaceholder: 'im gooning to Varka everyday',
+			textPlaceholder: 'im gooning Varka everyday',
 			moveToLocation: function(latlng, title, map) {
-				map.setView(latlng, 18);
+				map.setView(latlng, 22);
 			}
 		});
 		searchSHGB.addTo(map);
