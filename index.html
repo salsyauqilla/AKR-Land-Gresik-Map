@@ -312,6 +312,10 @@ opacitySlider.addEventListener('input', function() {
                     <tr>\
                         <td colspan="2">' + (feature.properties['SHGB_pdf'] !== null ? autolinker.link(String(feature.properties['SHGB_pdf']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
+                    </tr>\
+					    <th scope="row">Selisih_auto</th>\
+                        <td class="visible-with-data" id="Selisih_auto">' + (feature.properties['Selisih_auto'] !== null ? autolinker.link(String(feature.properties['Selisih_auto']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
 			layer.on('popupopen', function(e) {
@@ -405,7 +409,7 @@ opacitySlider.addEventListener('input', function() {
                         <th scope="row">error-perc</th>\
                         <td class="visible-with-data" id="error-perc">' + (feature.properties['error-perc'] !== null ? autolinker.link(String(feature.properties['error-perc']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
-                    <tr>\
+					</tr>\
                         <th scope="row">Selisih</th>\
                         <td class="visible-with-data" id="Selisih">' + (feature.properties['Selisih'] !== null ? autolinker.link(String(feature.properties['Selisih']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
@@ -611,7 +615,7 @@ opacitySlider.addEventListener('input', function() {
                         <th scope="row">error-percentage</th>\
                         <td class="visible-with-data" id="error-percentage">' + (feature.properties['error-percentage'] !== null ? autolinker.link(String(feature.properties['error-percentage']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
-                    <tr>\
+                    </tr>\
                         <th scope="row">Selisih_auto</th>\
                         <td class="visible-with-data" id="Selisih_auto">' + (feature.properties['Selisih_auto'] !== null ? autolinker.link(String(feature.properties['Selisih_auto']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
@@ -727,7 +731,7 @@ opacitySlider.addEventListener('input', function() {
                         <th scope="row">error-percentage</th>\
                         <td class="visible-with-data" id="error-percentage">' + (feature.properties['error-percentage'] !== null ? autolinker.link(String(feature.properties['error-percentage']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
-                    <tr>\
+                    </tr>\
                         <th scope="row">Selisih_auto</th>\
                         <td class="visible-with-data" id="Selisih_auto">' + (feature.properties['Selisih_auto'] !== null ? autolinker.link(String(feature.properties['Selisih_auto']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
@@ -925,7 +929,11 @@ opacitySlider.addEventListener('input', function() {
                         <th scope="row">Keterangan</th>\
                         <td class="visible-with-data" id="Keterangan">' + (feature.properties['Keterangan'] !== null ? autolinker.link(String(feature.properties['Keterangan']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
-                    <tr>\
+				    </tr>\
+					    <th scope="row">Selisih_auto</th>\
+                        <td class="visible-with-data" id="Selisih_auto">' + (feature.properties['Selisih_auto'] !== null ? autolinker.link(String(feature.properties['Selisih_auto']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    </tr>\
                         <th scope="row">error-percentage</th>\
                         <td class="visible-with-data" id="error-percentage">' + (feature.properties['error-percentage'] !== null ? autolinker.link(String(feature.properties['error-percentage']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
@@ -1122,6 +1130,10 @@ opacitySlider.addEventListener('input', function() {
                     <tr>\
                         <th scope="row">Keterangan</th>\
                         <td class="visible-with-data" id="Keterangan">' + (feature.properties['Keterangan'] !== null ? autolinker.link(String(feature.properties['Keterangan']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+					</tr>\
+					    <th scope="row">Selisih_auto</th>\
+                        <td class="visible-with-data" id="Selisih_auto">' + (feature.properties['Selisih_auto'] !== null ? autolinker.link(String(feature.properties['Selisih_auto']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">error-percentage</th>\
@@ -1320,6 +1332,10 @@ opacitySlider.addEventListener('input', function() {
                     <tr>\
                         <th scope="row">Keterangan</th>\
                         <td class="visible-with-data" id="Keterangan">' + (feature.properties['Keterangan'] !== null ? autolinker.link(String(feature.properties['Keterangan']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+					</tr>\
+					    <th scope="row">Selisih_auto</th>\
+                        <td class="visible-with-data" id="Selisih_auto">' + (feature.properties['Selisih_auto'] !== null ? autolinker.link(String(feature.properties['Selisih_auto']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
