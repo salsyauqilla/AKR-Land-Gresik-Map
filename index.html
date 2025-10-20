@@ -101,7 +101,7 @@
         <option value="layer_Kramat_2">Kramat</option>
         <option value="layer_Bedanten_3">Bedanten</option>
         <option value="layer_Manyarejo_4">Manyarejo</option>
-        <option value="layer_GEMWalkBetoyoKauman_5">GEMWalkBetoyoKauman</option>
+        <option value="layer__5"></option>
         <option value="layer_GEMWalkBetoyoGuci_6">GEMWalkBetoyoGuci</option>
         <option value="layer_EastGateManyarsidorukun_7">EastGateManyarsidorukun</option>
         <option value="layer_WestGateBanyuwangi_8">WestGateBanyuwangi</option>
@@ -126,7 +126,7 @@
         <script src="data/Kramat_2.js"></script>
         <script src="data/Bedanten_3.js"></script>
         <script src="data/Manyarejo_4.js"></script>
-        <script src="data/GEMWalkBetoyoKauman_5.js"></script>
+        <script src="data/_5.js"></script>
         <script src="data/GEMWalkBetoyoGuci_6.js"></script>
         <script src="data/EastGateManyarsidorukun_7.js"></script>
         <script src="data/WestGateBanyuwangi_8.js"></script>
@@ -171,8 +171,8 @@ layerSelect.addEventListener('change', function() {
             var style = currentLayer.options.style();
             opacityValue = style.fillOpacity;
             break;
-        case 'layer_GEMWalkBetoyoKauman_5':
-            currentLayer = layer_GEMWalkBetoyoKauman_5;
+        case 'layer__5':
+            currentLayer = layer__5;
             var style = currentLayer.options.style();
             opacityValue = style.fillOpacity;
             break;
@@ -884,7 +884,7 @@ opacitySlider.addEventListener('input', function() {
         function pop_GEMWalkBetoyoKauman_5(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(String(feature.properties['id']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <th colspan="2" style="text-align: left;">' + (feature.properties['id'] !== null ? autolinker.link(String(feature.properties['id']).replace(/'/g, '\'').toLocaleString()) : '') + '</th>\
                     </tr>\
                     <tr>\
                         <th scope="row">Nama_unit</th>\
